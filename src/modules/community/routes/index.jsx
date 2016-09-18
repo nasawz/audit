@@ -2,36 +2,26 @@
  * create by nasa.wang
  */
 import React from 'react'
-// import ReactDOM from 'react-dom'
-import Router, { Link, Route } from 'react-rainie-router'
+import {RouterMixin} from 'react-mini-router'
 
-function Home({url, title}) {
-    return (
-        <section className="home">
-            <h2>Welcome to my {title}</h2>
-            <p>current link: {url}</p>
-            <Link href="/account/123">go account</Link>
-        </section>
-    )
-}
-function Account({url, matches, name}) {
-    return (
-        <section className="account">
-            <h2>Account: {matches.id}</h2>
-            <p>my name is : {name}</p>
-            <pre>current link: {url}</pre>
-            <Link href="/">go homepage</Link>
-        </section>
-    )
-}
+const Routes = React.createClass({
+    mixins: [RouterMixin],
+    routes: {
+        '/': 'home',
+        '/message/:text': 'message'
+    },
+    render () {
+        return this.renderCurrentRoute()
+    },
+    home: function() {
+        return <div>Hello World</div>
+    },
+    message: function(text) {
+        return <div>{text}</div>
+    },
+    notFound: function(path) {
+        return <div className="not-found">Page Not Found: {path}</div>
+    }
+})
 
-function createRoutes() {
-    return (
-        <Router>
-            <Home path="/" title="homepage" default />
-            <Account path="/account/:id?" name="rainie" />
-        </Router>
-    )
-}
-
-module.exports = createRoutes
+export default Routes

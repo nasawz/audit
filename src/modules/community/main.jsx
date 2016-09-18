@@ -6,6 +6,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
+import Routes from './routes'
+
+import {navigate} from 'react-mini-router'
+
+const App = React.createFactory(Routes)
 
 import '../../style/index.less'
 
@@ -17,9 +22,8 @@ require('safe')(React, {
 
 ReactDOM.render(
     <Provider store={store()}>
-        <div>
-            cex_app
-        </div>
+        {App({ root:'/message/hello' })}
     </Provider>,
     document.getElementById('container')
 )
+navigate('/message/hello')
