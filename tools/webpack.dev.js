@@ -9,17 +9,17 @@ var config = require('./config'),
 
 var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin-steamer'),
-    CopyWebpackPlugin = require('copy-webpack-plugin-hash'),
-    OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+    // OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin-hash')
 
 var keys = require('lodash/keys')
 
 var devConfig = {
-    entry: configWebpack.entry,
+    entry: configWebpack.entry(),
     output: {
         publicPath: configWebpack.defaultPath,
         path: path.join(configWebpack.path.dev),
-        filename: '[name].js',
+        filename: 'js/[name].js',
         chunkFilename: 'chunk/[name].js',
     },
     module: {
@@ -85,18 +85,18 @@ var devConfig = {
                 to: 'libs/'
             }
         ]),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor.bundle.js'),
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: { discardComments: {removeAll: true } },
-            canPrint: true
-        }),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor.js'),
+        // new OptimizeCssAssetsPlugin({
+        //     assetNameRegExp: /\.css$/g,
+        //     cssProcessor: require('cssnano'),
+        //     cssProcessorOptions: { discardComments: {removeAll: true } },
+        //     canPrint: true
+        // }),
         new ExtractTextPlugin('./css/[name].css', {filenamefilter: function(filename) {
             // 由于entry里的chunk现在都带上了js/，因此，这些chunk require的css文件，前面也会带上./js的路径
             // 因此要去掉才能生成到正确的路径/css/xxx.css，否则会变成/css/js/xxx.css
             return filename.replace('/js', '')
-        }, disable: true}),
+        }}),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],

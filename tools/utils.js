@@ -42,14 +42,24 @@ module.exports = {
 		});
 
 		srcFiles.map((item, index) => {
-			extensions.map((ext, index) => {
-				let jsPath = path.join(srcPath, jsDirectory, item, 'main.' + ext);
-				if (fs.existsSync(jsPath)) {
-					jsFileArray['js/' + item] = [jsPath];
-				}
-			});
+			let p = path.join(srcPath, jsDirectory, item);
+			if (fs.statSync(p).isDirectory()) {
+				let allFiles = fs.readdirSync(path.join(srcPath, jsDirectory, item));
+				allFiles.map((f) => {
+					let jsPath = path.join(srcPath, jsDirectory, item, f);
+					let regx=/^main(-(\w*))?.(jsx|js)$/i
+					let match = f.match(regx)
+					if (fs.statSync(jsPath).isFile() && match) {
+						let part = match[2]
+						if (part) {
+							jsFileArray[item + '-' + part] = [jsPath];
+						}else{
+							jsFileArray[item] = [jsPath];
+						}
+					}
+				})
+			}
 		});
-
 		return jsFileArray;
 	}
 };

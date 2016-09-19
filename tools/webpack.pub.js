@@ -17,11 +17,11 @@ var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
 var keys = require('lodash/keys')
 
 var prodConfig = {
-    entry: configWebpack.entry,
+    entry: configWebpack.entry(),
     output: {
         publicPath: configWebpack.cdn,
         path: path.join(configWebpack.path.pub),
-        filename: '[name]-' + configWebpack.chunkhash + '.js',
+        filename: 'js/[name]-' + configWebpack.chunkhash + '.js',
         chunkFilename: 'chunk/[name]-' + configWebpack.chunkhash + '.js',
     },
     module: {
@@ -100,7 +100,12 @@ var prodConfig = {
             namePattern: '[name]-' + configWebpack.contenthash + '.js'
         }),
         new webpack.optimize.OccurrenceOrderPlugin(true),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor.bundle.js'),
+        new webpack.optimize.CommonsChunkPlugin(
+            {
+                name: 'vendor',
+                filename: 'js/[name]-' + configWebpack.chunkhash + '.js'
+            }
+        ),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),

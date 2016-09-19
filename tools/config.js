@@ -31,23 +31,27 @@ var config = {
         htmlres: {    // html-res-webpack-plugin资源注入配置
             dev: {    // 开发环境
                 'index': {
-                    'js/vendor.bundle': {
-                        external: true,
-                        res:  'js/vendor.bundle.js'
+                    'vendor': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
                     },
-                    'js/community': {
+                    'community': {
                         attr:{
                             js: '',
                             css: '',
                         }
                     },
                 },
-                'community': {
-                    'js/vendor.bundle': {
-                        external: true,
-                        res:  'js/vendor.bundle.js'
+                'community-list': {
+                    'vendor': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
                     },
-                    'js/community': {
+                    'community-list': {
                         attr:{
                             js: '',
                             css: '',
@@ -59,25 +63,30 @@ var config = {
                 'index': {
                     'libs/react': null,
                     'libs/react-dom': null,
-                    'js/vendor.bundle': {
-                        external: true,
-                        res:  'js/vendor.bundle.js'
-                    },
-                    'js/community': {
+                    'vendor': {
                         attr:{
                             js: '',
                             css: '',
                         }
                     },
+                    'community': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
+                    },
+
                 },
-                'community': {
+                'community-list': {
                     'libs/react': null,
                     'libs/react-dom': null,
-                    'js/vendor.bundle': {
-                        external: true,
-                        res:  'js/vendor.bundle.js'
+                    'vendor': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
                     },
-                    'js/community': {
+                    'community-list': {
                         attr:{
                             js: '',
                             css: '',
@@ -98,8 +107,6 @@ var config = {
     },
 }
 
-// 自动扫描html
-config.webpack.html = utils.getHtmlFile(config.webpack.path.src)
 // 根据约定，自动扫描js entry，约定是src/page/xxx/main.js 或 src/page/xxx/main.jsx
 /**
     当前获取结果
@@ -109,7 +116,9 @@ config.webpack.html = utils.getHtmlFile(config.webpack.path.src)
         'js/pindex': [path.join(configWebpack.path.src, '/page/pindex/main.jsx')],
     }
  */
-config.webpack.entry = utils.getJsFile(config.webpack.path.src, 'modules', 'main', ['js', 'jsx'])
+config.webpack.entry = function () {
+    return utils.getJsFile(config.webpack.path.src, 'modules', 'main', ['js', 'jsx'])
+}
 
 // 合图配置
 config.gulp.sprites = {
