@@ -9,19 +9,14 @@ import ActionTypes from '../constants/actionTypes.js'
 import merge from 'lodash/merge'
 
 const initialState = {
-    rollers: {},
-    topics: {
-        hasMore: true,
-        data:{},
-        page: 1
-    },
+    name: '',
 }
 
 export default function COMMUNITY(state = initialState, action = null) {
     switch (action.type) {
     case ActionTypes.COMMUNITY_SAY_HELLO:
-        return merge(state, action)
-    default :
+        return merge({ },state,action)
+    default:
         return state
     }
 }

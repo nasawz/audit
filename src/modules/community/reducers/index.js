@@ -3,6 +3,7 @@
  */
 
 import { combineReducers } from 'redux'
+import request from 'superagent'
 
 // import COMMON from './../modules/common/reducers/common.js'
 // import LOGIN from './../modules/login/reducers/login.js'

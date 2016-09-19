@@ -4,6 +4,9 @@
 import React from 'react'
 import {RouterMixin} from 'react-mini-router'
 
+import Container from '../../common/container.jsx'
+import Home from '../containers/homeContainers.js'
+
 const Routes = React.createClass({
     mixins: [RouterMixin],
     routes: {
@@ -11,10 +14,14 @@ const Routes = React.createClass({
         '/message/:text': 'message'
     },
     render () {
-        return this.renderCurrentRoute()
+        return (
+            <Container>
+                { this.renderCurrentRoute() }
+            </Container>
+        )
     },
     home: function() {
-        return <div>Hello World</div>
+        return <Home />
     },
     message: function(text) {
         return <div>{text}</div>

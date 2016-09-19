@@ -31,6 +31,10 @@ var config = {
         htmlres: {    // html-res-webpack-plugin资源注入配置
             dev: {    // 开发环境
                 'index': {
+                    'js/vendor.bundle': {
+                        external: true,
+                        res:  'js/vendor.bundle.js'
+                    },                    
                     'js/community': {
                         attr:{
                             js: '',
@@ -43,6 +47,10 @@ var config = {
                 'index': {
                     'libs/react': null,
                     'libs/react-dom': null,
+                    'js/vendor.bundle': {
+                        external: true,
+                        res:  'js/vendor.bundle.js'
+                    },
                     'js/community': {
                         attr:{
                             js: '',

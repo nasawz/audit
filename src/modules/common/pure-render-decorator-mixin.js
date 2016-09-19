@@ -146,24 +146,8 @@ function deepCompare(instance, nextProps, nextState) {
     return result;
 }
 
-/**
- * [rewite shouldComponentUpdate]
- * @param  {[type]} nextProps [description]
- * @param  {[type]} nextState [description]
- * @return {[type]}           [description]
- */
-function shouldComponentUpdate(nextProps, nextState) {
-    return deepCompare(this, nextProps, nextState);
+module.exports = {
+    shouldComponentUpdate(nextProps, nextState) {
+        return deepCompare(this, nextProps, nextState)
+    }
 }
-
-/**
- * [decorator wrapper]
- * @param  {[type]} component [description]
- * @return {[type]}           [description]
- */
-function pureRenderDecorator(component) {
-    component.prototype.shouldComponentUpdate = shouldComponentUpdate;
-}
-
-
-module.exports = pureRenderDecorator;

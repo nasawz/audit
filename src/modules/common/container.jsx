@@ -7,7 +7,7 @@ const Container = React.createClass({
     render () {
         let {children} = this.props
         return (
-            <div>
+            <div className='cex-Container'>
                 { children }
             </div>
         )
