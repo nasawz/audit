@@ -34,7 +34,19 @@ var config = {
                     'js/vendor.bundle': {
                         external: true,
                         res:  'js/vendor.bundle.js'
-                    },                    
+                    },
+                    'js/community': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
+                    },
+                },
+                'community': {
+                    'js/vendor.bundle': {
+                        external: true,
+                        res:  'js/vendor.bundle.js'
+                    },
                     'js/community': {
                         attr:{
                             js: '',
@@ -57,7 +69,21 @@ var config = {
                             css: '',
                         }
                     },
-                }
+                },
+                'community': {
+                    'libs/react': null,
+                    'libs/react-dom': null,
+                    'js/vendor.bundle': {
+                        external: true,
+                        res:  'js/vendor.bundle.js'
+                    },
+                    'js/community': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
+                    },
+                },
             }
         }
     },

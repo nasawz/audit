@@ -14,6 +14,8 @@ var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
     WebpackMd5Hash = require('webpack-md5-hash'),
     OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
+var keys = require('lodash/keys')
+
 var prodConfig = {
     entry: configWebpack.entry,
     output: {
@@ -130,7 +132,7 @@ prodConfig.addPlugins = function(plugin, opt) {
     prodConfig.plugins.push(new plugin(opt))
 }
 
-configWebpack.html.forEach(function(page) {
+keys(configWebpack.htmlres.pub).forEach(function(page) {
     prodConfig.addPlugins(HtmlResWebpackPlugin, {
         filename: page + '.html',
         // template: 'src/' + page + '.html',
