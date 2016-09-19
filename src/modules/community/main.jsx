@@ -8,8 +8,6 @@ import { Provider } from 'react-redux'
 import store from './store'
 import Routes from './routes'
 
-import {navigate} from 'react-mini-router'
-
 const App = React.createFactory(Routes)
 
 import '../../style/index.less'
@@ -22,8 +20,7 @@ require('safe')(React, {
 
 ReactDOM.render(
     <Provider store={store()}>
-        {App({ root:'/message/hello' })}
+        {App({ root:'' })}
     </Provider>,
     document.getElementById('container')
 )
-navigate('/message/hello')
