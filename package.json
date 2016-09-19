@@ -1,13 +1,17 @@
 {
   "name": "cex_app",
   "version": "0.0.1",
-  "description": "",
+  "description": "cex_app",
   "main": "index.js",
   "scripts": {
     "dev": "node ./tools/gulpfile.js && node ./tools/webpack.config.js",
     "pub": "node ./tools/gulpfile.js && export NODE_ENV=__PROD__ && node ./tools/webpack.config.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "http://211.149.154.87/ces/cex_app.git"
+  },
+  "author": "nasa.wang",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^6.4.1",
