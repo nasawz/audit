@@ -40,15 +40,6 @@ var config = {
     },
 }
 
-// 根据约定，自动扫描js entry，约定是src/page/xxx/main.js 或 src/page/xxx/main.jsx
-/**
-    当前获取结果
-    {
-        'js/index': [path.join(configWebpack.path.src, '/page/index/main.js')],
-        'js/spa': [path.join(configWebpack.path.src, '/page/spa/main.js')],
-        'js/pindex': [path.join(configWebpack.path.src, '/page/pindex/main.jsx')],
-    }
- */
 config.webpack.entry = function () {
     return utils.getJsFile(config.webpack.path.src, 'modules', 'main', ['js', 'jsx'])
 }
