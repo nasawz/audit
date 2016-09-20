@@ -101,8 +101,8 @@ function deepEqual(objA, objB, depth) {
         }
     }
 
-    var keysA = Object.keys(objA);
-    var keysB = Object.keys(objB);
+    var keysA = objA?Object.keys(objA):[];
+    var keysB = objB?Object.keys(objB):[];
 
     if (keysA.length !== keysB.length) {
         return false;
