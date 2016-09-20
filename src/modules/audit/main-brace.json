@@ -1,7 +1,7 @@
 {
     "dev":{
-        "title":"七嘴八舌",
-        "filename":"index",
+        "title":"现场支撑",
+        "filename":"audit-brace",
         "chunks":{
             "vendor":{
                 "attr":{
@@ -9,7 +9,7 @@
                     "css":""
                 }
             },
-            "community":{
+            "audit-brace":{
                 "attr":{
                     "js":"",
                     "css":""
@@ -18,8 +18,8 @@
         }
     },
     "pub":{
-        "title":"七嘴八舌",
-        "filename":"index",
+        "title":"现场支撑",
+        "filename":"audit-brace",
         "chunks":{
             "libs/react": null,
             "libs/react-dom": null,
@@ -29,7 +29,7 @@
                     "css":""
                 }
             },
-            "community":{
+            "audit-brace":{
                 "attr":{
                     "js":"",
                     "css":""

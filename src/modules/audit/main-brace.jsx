@@ -7,9 +7,8 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 
-
 import Routes from './routes/alone.jsx'
-import Post from './containers/postContainer.js'
+import Brace from './containers/braceContainer.js'
 
 import '../../style/index.less'
 
@@ -22,7 +21,7 @@ require('safe')(React, {
 ReactDOM.render(
     <Provider store={store()}>
         <Routes>
-            <Post />
+            <Brace />
         </Routes>
     </Provider>,
     document.getElementById('container')

@@ -12,9 +12,9 @@ const initialState = {
     name: '',
 }
 
-export default function COMMUNITY(state = initialState, action = null) {
+export default function AUDIT(state = initialState, action = null) {
     switch (action.type) {
-    case ActionTypes.COMMUNITY_SAY_HELLO:
+    case ActionTypes.AUDIT_SAY_HELLO:
         return merge({ },state,action)
     default:
         return state

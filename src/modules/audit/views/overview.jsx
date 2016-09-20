@@ -3,12 +3,13 @@
  */
 import React from 'react'
 import PureRenderDecoratorMixin from '../../common/pure-render-decorator-mixin.js'
+
 import NavigateMixin from '../../common/navigate-mixin.js'
 
-const Post = React.createClass({
+const Overview = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     componentDidMount() {
-        this.props.actions.sayHello('Post')
+        this.props.actions.sayHello('Overview')
     },
     render () {
         return (
@@ -17,4 +18,4 @@ const Post = React.createClass({
     }
 })
 
-export default Post
+export default Overview

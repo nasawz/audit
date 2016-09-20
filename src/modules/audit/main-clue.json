@@ -1,7 +1,7 @@
 {
     "dev":{
-        "title":"发表新鲜事",
-        "filename":"community-post",
+        "title":"审计线索",
+        "filename":"audit-clue",
         "chunks":{
             "vendor":{
                 "attr":{
@@ -9,7 +9,7 @@
                     "css":""
                 }
             },
-            "community-post":{
+            "audit-clue":{
                 "attr":{
                     "js":"",
                     "css":""
@@ -18,8 +18,8 @@
         }
     },
     "pub":{
-        "title":"发表新鲜事",
-        "filename":"community-post",
+        "title":"审计线索",
+        "filename":"audit-clue",
         "chunks":{
             "libs/react": null,
             "libs/react-dom": null,
@@ -29,7 +29,7 @@
                     "css":""
                 }
             },
-            "community-post":{
+            "audit-clue":{
                 "attr":{
                     "js":"",
                     "css":""

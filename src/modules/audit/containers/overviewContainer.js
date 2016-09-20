@@ -6,11 +6,11 @@ import * as Actions from '../actions/homeActions.js'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Post from '../views/post.jsx'
+import Overview from '../views/overview.jsx'
 
 function mapProps(state) {
     return {
-        name: state.COMMUNITY.name
+        name: state.AUDIT.name
     }
 }
 
@@ -20,4 +20,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapProps,mapDispatchToProps)(Post)
+export default connect(mapProps,mapDispatchToProps)(Overview)

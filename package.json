@@ -1,7 +1,7 @@
 {
-  "name": "cex_app",
+  "name": "audit",
   "version": "0.0.1",
-  "description": "cex_app",
+  "description": "中国移动 离任审计",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",

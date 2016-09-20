@@ -6,9 +6,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
+import Routes from './routes/spa.jsx'
 
-import Routes from './routes/alone.jsx'
-import Home from './containers/homeContainer.js'
+const App = React.createFactory(Routes)
+import {navigate} from 'react-mini-router'
 
 import '../../style/index.less'
 
@@ -20,9 +21,10 @@ require('safe')(React, {
 
 ReactDOM.render(
     <Provider store={store()}>
-        <Routes>
-            <Home />
-        </Routes>
+        {App({ root:'/audit' })}
     </Provider>,
     document.getElementById('container')
 )
+if (window.location.pathname == '/') {
+    navigate('/audit/home')
+}
