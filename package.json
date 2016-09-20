@@ -9,8 +9,7 @@
     "pub": "node ./tools/gulpfile.js && export NODE_ENV=__PROD__ && node ./tools/webpack.config.js",
     "lint": "eslint 'src/**/*.@(js|jsx)'",
     "pretest": "npm run lint",
-    "test": "mocha --compilers js:babel-core/register --recursive",
-    "test:watch": "npm run test -- --watch"    
+    "test": "mocha --compilers js:babel-core/register --recursive"
   },
   "repository": {
     "type": "git",
