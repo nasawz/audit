@@ -44,14 +44,28 @@ var config = {
                         }
                     },
                 },
-                'community-list': {
+                'community-home': {
                     'vendor': {
                         attr:{
                             js: '',
                             css: '',
                         }
                     },
-                    'community-list': {
+                    'community-home': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
+                    },
+                },
+                'community-post': {
+                    'vendor': {
+                        attr:{
+                            js: '',
+                            css: '',
+                        }
+                    },
+                    'community-post': {
                         attr:{
                             js: '',
                             css: '',
@@ -77,7 +91,7 @@ var config = {
                     },
 
                 },
-                'community-list': {
+                'community-home': {
                     'libs/react': null,
                     'libs/react-dom': null,
                     'vendor': {
@@ -86,7 +100,7 @@ var config = {
                             css: '',
                         }
                     },
-                    'community-list': {
+                    'community-home': {
                         attr:{
                             js: '',
                             css: '',

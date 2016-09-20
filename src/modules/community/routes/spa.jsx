@@ -1,16 +1,26 @@
 /**
  * create by nasa.wang
  */
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {RouterMixin} from 'react-mini-router'
 
 import Container from '../../common/container.jsx'
-import Home from '../containers/homeContainers.js'
+import Home from '../containers/homeContainer.js'
+import Post from '../containers/postContainer.js'
 
 const Routes = React.createClass({
     mixins: [RouterMixin],
+    childContextTypes: {
+        runType: PropTypes.string.isRequired
+    },
+    getChildContext: function() {
+        return {
+            runType: 'spa'
+        }
+    },
     routes: {
-        '/': 'home',
+        '/home': 'home',
+        '/post': 'post',
         '/message/:text': 'message'
     },
     render () {
@@ -20,13 +30,16 @@ const Routes = React.createClass({
             </Container>
         )
     },
-    home: function() {
-        return <Home />
+    home(params) {
+        return <Home params={params} />
     },
-    message: function(text) {
+    post() {
+        return <Post  />
+    },
+    message(text) {
         return <div>{text}</div>
     },
-    notFound: function(path) {
+    notFound(path) {
         return <div className="not-found">Page Not Found: {path}</div>
     }
 })

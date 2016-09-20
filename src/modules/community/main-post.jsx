@@ -8,8 +8,8 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 
-import Container from '../common/container.jsx'
-import Home from './containers/homeContainers.js'
+import Routes from './routes/alone.jsx'
+import Post from './containers/postContainer.js'
 
 import '../../style/index.less'
 
@@ -21,9 +21,9 @@ require('safe')(React, {
 
 ReactDOM.render(
     <Provider store={store()}>
-        <Container>
-            <Home />
-        </Container>
+        <Routes>
+            <Post />
+        </Routes>
     </Provider>,
     document.getElementById('container')
 )
