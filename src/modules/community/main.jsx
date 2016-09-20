@@ -25,4 +25,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('container')
 )
-// navigate('/community/home')
+if (window.location.pathname == '/') {
+    navigate('/community/home')
+}
