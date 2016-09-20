@@ -6,6 +6,11 @@ import PureRenderDecoratorMixin from '../../common/pure-render-decorator-mixin.j
 
 import NavigateMixin from '../../common/navigate-mixin.js'
 
+import HeaderBar from 'audit/bar/header-bar.jsx'
+import SideNavBar from 'audit/bar/side-nav-bar.jsx'
+import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
+import ContentWapper from 'audit/layout/content-wapper.jsx'
+
 const Overview = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     componentDidMount() {
@@ -13,7 +18,21 @@ const Overview = React.createClass({
     },
     render () {
         return (
-            <div>{this.props.name} say hello</div>
+            <div>
+                <HeaderBar />
+                <div>
+                    <SideNavBar>
+                        <SideNavBarItem />
+                        <SideNavBarItem selected />
+                        <SideNavBarItem />
+                        <SideNavBarItem />
+                        <SideNavBarItem />
+                    </SideNavBar>
+                    <ContentWapper>
+                        {this.props.name} say hello
+                    </ContentWapper>
+                </div>
+            </div>
         )
     }
 })
