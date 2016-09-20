@@ -14,7 +14,8 @@ var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
     WebpackMd5Hash = require('webpack-md5-hash'),
     OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-var keys = require('lodash/keys')
+
+var forEach = require('lodash/forEach')
 
 var prodConfig = {
     entry: configWebpack.entry(),
@@ -137,13 +138,19 @@ prodConfig.addPlugins = function(plugin, opt) {
     prodConfig.plugins.push(new plugin(opt))
 }
 
-keys(configWebpack.htmlres.pub).forEach(function(page) {
+forEach(prodConfig.entry,function (value) {
+    let conf = require(value[0].replace(/(jsx|js)/g,'json'))
     prodConfig.addPlugins(HtmlResWebpackPlugin, {
-        filename: page + '.html',
-        // template: 'src/' + page + '.html',
+        filename: conf.pub.filename + '.html',
+        title:conf.pub.title,
         template: 'tools/template.html',
         favicon: 'src/favicon.ico',
-        chunks: configWebpack.htmlres.pub[page],
+        chunks: conf.pub.chunks,
+        templateContent: function(tpl) {
+            var regex = new RegExp('{title}', 'ig')
+            tpl = tpl.replace(regex, conf.pub.title)
+            return tpl
+        },
         htmlMinify: {
             removeComments: true,
             collapseWhitespace: true,

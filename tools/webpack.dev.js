@@ -12,7 +12,7 @@ var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
     // OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
     CopyWebpackPlugin = require('copy-webpack-plugin-hash')
 
-var keys = require('lodash/keys')
+var forEach = require('lodash/forEach')
 
 var devConfig = {
     entry: configWebpack.entry(),
@@ -109,14 +109,23 @@ devConfig.addPlugins = function(plugin, opt) {
     devConfig.plugins.push(new plugin(opt))
 }
 
-
-keys(configWebpack.htmlres.dev).forEach(function(page) {
+forEach(devConfig.entry,function (value) {
+    let conf = require(value[0].replace(/(jsx|js)/g,'json'))
     devConfig.addPlugins(HtmlResWebpackPlugin, {
-        filename: page + '.html',
-        // template: 'src/' + page + '.html',
+        filename: conf.dev.filename + '.html',
+        title:conf.dev.title,
         template: 'tools/template.html',
         favicon: 'src/favicon.ico',
-        chunks: configWebpack.htmlres.dev[page],
+        chunks: conf.dev.chunks,
+        templateContent: function(tpl) {
+            // 生产环境不作处理
+            if (!this.webpackOptions.watch) {
+                return tpl
+            }
+            var regex = new RegExp('{title}', 'ig')
+            tpl = tpl.replace(regex, conf.dev.title)
+            return tpl
+        },
         htmlMinify: null
     })
 })

@@ -4,7 +4,9 @@ var app = express()
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
+var ProgressPlugin = require('webpack/lib/ProgressPlugin')
 var proxy = require('proxy-middleware')
+var ProgressBar = require('progress')
 
 var webpackConfig = require('./webpack.dev.js'),
     config = require('./config.js')
@@ -15,6 +17,16 @@ for (var key in webpackConfig.entry) {
 }
 
 var compiler = webpack(webpackConfig)
+const bar = new ProgressBar(':bar [:percent] :message', {
+    total: 50
+})
+compiler.apply(
+    new ProgressPlugin((percentage, msg) => {
+        bar.update(percentage, {
+            message: msg
+        })
+    })
+)
 app.use(webpackDevMiddleware(compiler, {
     hot: true,
 	// historyApiFallback: false,
