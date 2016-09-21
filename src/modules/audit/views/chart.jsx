@@ -15,7 +15,8 @@ const Chart = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     downPointFun(){
     	this.setState({
-    		downPoint:!this.state.downPoint
+    		downPoint:!this.state.downPoint,
+    		outerLi:'none',
     	});
     },
     downLiFun(){
@@ -73,6 +74,19 @@ const Chart = React.createClass({
 								</div>
 								<div className="downPoint" onClick={this.downPointFun}>
 								</div>								
+							</div>
+							<div className="listCont">
+								<div className="columns">
+									<div className="column">
+										<div style={{background:'red'}}>1</div>
+									</div>
+									<div className="column">
+										<div style={{background:'red'}}>1</div>
+									</div>
+									<div className="column">3</div>
+									<div className="column">4</div>
+									<div className="column">5</div>
+								</div>
 							</div>
                     	</div>
                         
