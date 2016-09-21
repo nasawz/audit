@@ -4,11 +4,33 @@ import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
+import CreateGroupAlert from '../../../components/audit/alert/create-group-alert.jsx'
 
 import navConf from '../nav-config.js'
 
 const CreateGroup = React.createClass({
-    render () {
+    nextstep() {
+        this.setState({
+            showAlert: true,
+        })
+    },
+    closeAlert(data) {
+        this.setState({
+            showAlert: false,
+        })
+    },
+    alertOk() {
+        window.location.href='audit-privilege.html'
+    },
+    getInitialState() {
+        return {
+            show: false,
+            page: 's2',
+            showAlert: false,
+            result: false,
+        }
+    },
+    render() {
         return (
             <div>
                 <HeaderBar />
@@ -23,37 +45,38 @@ const CreateGroup = React.createClass({
                         <SideNavBarItem icon="creategroup" path={navConf.leftnav[6]}  selected  />
                     </SideNavBar>
                     <ContentWapper>
+                        <CreateGroupAlert show={this.state.showAlert} close={this.closeAlert} alertOk={this.alertOk} />
                         <div className="clueBox creategroup">
                             <h1 className="cardHeader">新建工作组</h1>
                             <div className="columns">
                                 <div className="column is-11 is-offset-1">
 
-                                    <div className="container" style={{paddingTop:'80px'}}>
+                                    <div className="container" style={{ paddingTop: '80px' }}>
                                         <div className="content">
                                             <h3>组长：李华</h3>
                                         </div>
                                         <div className="control is-horizontal">
-                                          <div className="control-label">
-                                            <label className="label">选择部门</label>
-                                          </div>
-                                          <div className="control" style={{flexGrow:14}}>
-                                            <p className="control">
-                                              <input className="input" type="text" placeholder="Name" />
-                                            </p>
-                                          </div>
+                                            <div className="control-label">
+                                                <label className="label">选择部门</label>
+                                            </div>
+                                            <div className="control" style={{ flexGrow: 14 }}>
+                                                <p className="control">
+                                                    <input className="input" type="text" placeholder="Name" />
+                                                </p>
+                                            </div>
                                         </div>
                                         <div className="control is-horizontal">
-                                          <div className="control-label">
-                                            <label className="label">添加组员</label>
-                                          </div>
-                                          <div className="control" style={{flexGrow:14}}>
+                                            <div className="control-label">
+                                                <label className="label">添加组员</label>
+                                            </div>
+                                            <div className="control" style={{ flexGrow: 14 }}>
 
-                                          </div>
+                                            </div>
                                         </div>
                                         <div className='flex-center'>
                                             <div>
-                                                <a className="button is-dark" style={{width:'120px',marginRight:'20px'}}>取消</a>
-                                                <a className="button is-info" style={{width:'120px',marginRight:'20px'}}>下一步</a>
+                                                <a className="button is-dark" style={{ width: '120px', marginRight: '20px' }}>取消</a>
+                                                <a className="button is-info" style={{ width: '120px', marginRight: '20px' }} onClick={this.nextstep}>下一步</a>
                                             </div>
                                         </div>
                                     </div>
