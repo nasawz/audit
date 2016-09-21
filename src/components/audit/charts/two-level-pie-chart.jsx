@@ -52,32 +52,28 @@ const TwoLevelPieChart = React.createClass({
         document.getElementsByClassName('recharts-pie-sector')[1].getElementsByTagName('path')[0].setAttribute('fill', '#d5eeff')
     },
     renderContent() {
-        if (this.state && this.state.width) {
-            let state = this.props.state
-            let data
-            if (state == 's1') {
-                data = data_one
-            } else if (state == 's2') {
-                data = data_two
-            }
-            return (
-                <div>
-                    <PieChart width={parseInt(this.props.width) } height={parseInt(this.props.height) } >
-                        <Pie
-                            activeIndex={this.state.activeIndex}
-                            activeShape={renderActiveShape}
-                            data={data}
-                            cx={100}
-                            cy={100}
-                            innerRadius={60}
-                            outerRadius={80}
-                            fill="#3598db"/>
-                    </PieChart>
-                </div>
-            )
-        } else {
-            return <div />
+        let state = this.props.state
+        let data
+        if (state == 's1') {
+            data = data_one
+        } else if (state == 's2') {
+            data = data_two
         }
+        return (
+            <div>
+                <PieChart width={parseInt(this.props.width) } height={parseInt(this.props.height) } >
+                    <Pie
+                        activeIndex={this.state.activeIndex}
+                        activeShape={renderActiveShape}
+                        data={data}
+                        cx={100}
+                        cy={100}
+                        innerRadius={60}
+                        outerRadius={80}
+                        fill="#3598db"/>
+                </PieChart>
+            </div>
+        )
 
     },
     render() {
