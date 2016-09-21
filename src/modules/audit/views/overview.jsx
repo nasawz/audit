@@ -11,6 +11,12 @@ import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 
+import SimpleLineChart from 'audit/charts/simple-line-chart.jsx'
+import StackedBarChart from 'audit/charts/stacked-bar-chart.jsx'
+import TwoLevelPieChart from 'audit/charts/two-level-pie-chart.jsx'
+
+import navConf from '../nav-config.js'
+
 const Overview = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     componentDidMount() {
@@ -22,18 +28,19 @@ const Overview = React.createClass({
                 <HeaderBar />
                 <div>
                     <SideNavBar>
-                        <SideNavBarItem icon="home" path="" />
-                        <SideNavBarItem icon="overview" path="" selected />
-                        <SideNavBarItem icon="circle" path="" />
-                        <SideNavBarItem icon="chart" path="" />
-                        <SideNavBarItem icon="clue" path="" />
-                        <SideNavBarItem icon="brace" path="" />
+                        <SideNavBarItem icon="home" path={navConf.leftnav[0]} />
+                        <SideNavBarItem icon="overview" path={navConf.leftnav[1]} selected />
+                        <SideNavBarItem icon="circle" path={navConf.leftnav[2]} />
+                        <SideNavBarItem icon="chart" path={navConf.leftnav[3]} />
+                        <SideNavBarItem icon="clue" path={navConf.leftnav[4]} />
+                        <SideNavBarItem icon="brace" path={navConf.leftnav[5]}  />
                     </SideNavBar>
                     <ContentWapper>
                         <div className="overview">
                             <div className="columns">
                                 <div className="column is-three-quarters">
-                                    <div className="overviewChart">
+                                    <div ref='overviewChart' className="overviewChart">
+                                        <TwoLevelPieChart/>
 
                                     </div>
                                 </div>
