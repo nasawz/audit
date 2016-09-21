@@ -75,7 +75,7 @@ const Overview = React.createClass({
                         <SideNavBarItem icon="chart" path={navConf.leftnav[3]} />
                         <SideNavBarItem icon="clue" path={navConf.leftnav[4]} />
                         <SideNavBarItem icon="brace" path={navConf.leftnav[5]}  />
-                        <SideNavBarItem icon="creategroup" path={navConf.leftnav[6]}  />
+                        <SideNavBarItem icon="xcreategroup" path={navConf.leftnav[6]}  />
                     </SideNavBar>
                     <ContentWapper>
                         <div className="overview">

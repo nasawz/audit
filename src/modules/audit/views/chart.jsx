@@ -264,7 +264,7 @@ const Chart = React.createClass({
                         <SideNavBarItem icon="chart" path={navConf.leftnav[3]} selected/>
                         <SideNavBarItem icon="clue" path={navConf.leftnav[4]}  />
                         <SideNavBarItem icon="brace" path={navConf.leftnav[5]}  />
-                        <SideNavBarItem icon="creategroup" path={navConf.leftnav[6]}  />
+                        <SideNavBarItem icon="xcreategroup" path={navConf.leftnav[6]}  />
                     </SideNavBar>
                     <ContentWapper>
                     	<div className="chartPart">
