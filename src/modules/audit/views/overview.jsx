@@ -10,6 +10,7 @@ import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 import StackedBarChart from 'audit/charts/stacked-bar-chart.jsx'
+import Pan from 'audit/pan/pan.jsx'
 
 const Overview = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
@@ -24,7 +25,7 @@ const Overview = React.createClass({
                     <SideNavBar></SideNavBar>
                     <ContentWapper>
                         <StackedBarChart />
-                       
+                        <Pan />
                     </ContentWapper>
                 </div>
             </div>
