@@ -39,14 +39,21 @@ const Overview = React.createClass({
                         <div className="overview">
                             <div className="columns">
                                 <div className="column is-three-quarters">
-                                    <div ref='overviewChart' className="overviewChart">
-                                        <TwoLevelPieChart/>
-
+                                    <div className="overviewChart">
+                                        <div className="overviewChartHd">
+                                            <strong>审计点数据支撑情况汇总</strong>
+                                            <span><i></i>不适用大数据分析</span>
+                                            <span><i></i>省公司数据运行大数据分析</span>
+                                            <span><i></i>总部和省数据运行大数据分析</span>
+                                            <span><i></i>总部数据运行大数据分析</span>
+                                        </div>
+                                        <StackedBarChart height={290} />
                                     </div>
                                 </div>
                                 <div className="column">
-                                    <div className="overviewProgress">
-
+                                    <div ref='overviewProgress' className="overviewProgress">
+                                        <h1>数据准备进度</h1>
+                                        <TwoLevelPieChart />
                                     </div>
                                 </div>
                             </div>
