@@ -2,6 +2,7 @@ import React from 'react'
 import { PieChart, Pie, Sector } from 'recharts'
 const data_one = [{ name: '85%', value: 85 }, { name: 'Group B', value: 15 }]
 const data_two = [{ name: '60%', value: 60 }, { name: 'Group B', value: 40 }]
+const data_three = [{ name: '70%', value: 70 }, { name: 'Group B', value: 30 }]
 
 const renderActiveShape = (props) => {
     // const RADIAN = Math.PI / 180
@@ -58,6 +59,9 @@ const TwoLevelPieChart = React.createClass({
             data = data_one
         } else if (state == 's2') {
             data = data_two
+        } else if (state == 's3') { 
+            data = data_three
+
         }
         return (
             <div>
