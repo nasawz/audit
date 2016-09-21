@@ -12,18 +12,18 @@ const AlertChart = React.createClass({
     render () {
         let H = window.innerHeight+'px'
         let show = this.props.show?'block':'none';
+        let top = this.props.top?this.props.top:'20%';
 
         return (
             <div className="AlertBox" style={{minHeight:H,display:show}}>
-                <div className="box boxChart">
+                <div className="box boxChart" style={{top:top}}>
                     <p className="boxTop">{this.props.title}
                         <i className="dele" data-target="1" onClick={this.closeAlert}></i>
-                    }
                     </p>
                     <div className="alertCont" onClick={this.changeClass}>
                         { this.props.children }
                     </div>
-                    
+
                 </div>
                 <div className='alertBottom' onClick={this.closeAlert}></div>
             </div>
