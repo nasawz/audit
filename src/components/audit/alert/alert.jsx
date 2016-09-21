@@ -4,14 +4,14 @@ import '../../../style/Alert.less'
 const Alert = React.createClass({
     getInitialState(){
         return {
-            cls:true,
+            scls:true,
             status:true,
 
         }
     },
     changeClass(){
         this.setState({
-            cls:false
+            scls:false
         })
     },
     goFinish(){
@@ -32,22 +32,25 @@ const Alert = React.createClass({
     },
 
     renderContent(){
+        let ll = require('../../../img/loading.png')
         if(this.state.status){
             return(
                 <sapn>执行</sapn>
             )
         }else{
-            return(<sapn>执行<img src={require('../../../img/loading.png')}/> </sapn> )
+            return(<sapn>执行<img src={ll}/> </sapn> )
         }
     },
     renderImg(){
-        let imgContent = <div />
-        if(this.state.cls){
-            imgContent = <img src={require('../../../img/c7.jpg')} />
+        let cc7 = require('../../../img/c7.jpg');
+        let cc8 = require('../../../img/c8.jpg');
+        let cc = ''
+        if(this.state.scls){
+            cc = cc7
         }else{
-            imgContent = <img src={require('../../../img/c8.jpg')} />
+            cc = cc8
         }
-        return imgContent
+        return <img src={cc} />
     },
     render () {
         let H = window.innerHeight+'px'
