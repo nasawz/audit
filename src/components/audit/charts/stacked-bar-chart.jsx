@@ -27,7 +27,7 @@ const StackedBarChart = React.createClass({
     },
     render() {
         return (
-            <BarChart width={this.props.width} height={this.props.height} data={data}
+            <BarChart width={parseInt(this.props.width)} height={parseInt(this.props.height)} data={data}
                 margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <XAxis dataKey="name"/>
                 <YAxis/>
