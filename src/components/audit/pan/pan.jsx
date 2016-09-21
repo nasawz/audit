@@ -38,10 +38,13 @@ const Pan = React.createClass({
             'state1':this.state.state === 's1',
             'state2':this.state.state === 's2',
         }
+        let ss1 = require('../../../img/pan-s1.png')
+        let ss2 = require('../../../img/pan-s2.png')
+        let ss = (this.state.state === 's1')?ss1:ss2
         return (
             <div className='pan flex-container flex-center flex-middle'>
                 <div className={classNames(bgClasses)}>
-                    <img className="panbg flex-container flex-center flex-middle" src={require('../../../img/pan-'+this.state.state+'.png')}/>
+                    <img className="panbg flex-container flex-center flex-middle" src={ss}/>
                     <img onClick={this.changeState} className={classNames(arrClasses)} src={require('../../../img/pan-arr.png')}/>
                     <span onClick={this.changeState} >审计线索</span>
                 </div>
