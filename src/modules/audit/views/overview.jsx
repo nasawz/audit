@@ -11,6 +11,10 @@ import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 
+import SimpleLineChart from 'audit/charts/simple-line-chart.jsx'
+import StackedBarChart from 'audit/charts/stacked-bar-chart.jsx'
+import TwoLevelPieChart from 'audit/charts/two-level-pie-chart.jsx'
+
 import navConf from '../nav-config.js'
 
 const Overview = React.createClass({
@@ -18,7 +22,48 @@ const Overview = React.createClass({
     componentDidMount() {
         this.props.actions.sayHello('Overview')
     },
+    getInitialState() {
+        return {
+            idx: 1
+        }
+    },
+    handleClickPrev() {
+        if (this.state.idx == 1) return
+        this.setState({
+            idx: 1
+        })
+    },
+    handleClickNext() {
+        console.log(this.state.idx);
+        if (this.state.idx == 2) return
+        this.setState({
+            idx: 2
+        })
+    },
+    renderProgress() {
+        if (this.state.idx == 1) {
+            return (
+                <div>
+                    <div className="overviewProgressBox">
+                        <TwoLevelPieChart width={200} height={200} state="s1" />
+                    </div>
+                    <p>省公司数据准备情况</p>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div className="overviewProgressBox">
+                        <TwoLevelPieChart width={200} height={200} state="s2" />
+                    </div>
+                    <p>省公司数据准备</p>
+                </div>
+            )
+        }
+    },
     render () {
+        let prevCls = this.state.idx == 1 ? 'prev disabled' : 'prev';
+        let nextCls = this.state.idx == 2 ? 'next disabled' : 'next';
         return (
             <div>
                 <HeaderBar />
@@ -37,16 +82,29 @@ const Overview = React.createClass({
                             <div className="columns">
                                 <div className="column is-three-quarters">
                                     <div className="overviewChart">
-
+                                        <div className="overviewChartHd">
+                                            <strong>审计点数据支撑情况汇总</strong>
+                                            <span><i></i>不适用大数据分析</span>
+                                            <span><i></i>省公司数据运行大数据分析</span>
+                                            <span><i></i>总部和省数据运行大数据分析</span>
+                                            <span><i></i>总部数据运行大数据分析</span>
+                                        </div>
+                                        <StackedBarChart height={290} />
                                     </div>
                                 </div>
                                 <div className="column">
-                                    <div className="overviewProgress">
-
+                                    <div ref='overviewProgress' className="overviewProgress">
+                                        <h1>数据准备进度</h1>
+                                        { this.renderProgress() }
+                                        <div className="overviewProgressBtn">
+                                            <b className={prevCls} onClick={this.handleClickPrev}></b>
+                                            <b className={nextCls} onClick={this.handleClickNext}></b>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="overviewBlock">
+                                <div className="overviewBlockTips"><p>打包下载</p></div>
                                 <div className="columns">
                                     <div className="column">
                                         <div>

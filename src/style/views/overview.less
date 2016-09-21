@@ -1,15 +1,101 @@
 .overview {
     padding: 30px;
     .overviewChart, .overviewProgress {
-        height: 280px;
+        height: 320px;
         background-color: #fff;
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .overviewChart {
+        font-size: 10px;
+        .overviewChartHd {
+            padding: 14px 0 10px 14px;
+            strong {
+                font-size: 18px;
+                color: #343434;
+            }
+            span {
+                display: inline-block;
+                margin: 0 8px;
+                font-size: 12px;
+                color: #343434;
+                i {
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    margin: -2px 2px 0 0;
+                    background-color: #9857b3;
+                    vertical-align: middle;
+                }
+                &:nth-child(3) i {
+                    background-color: #1abc9c;
+                }
+                &:nth-child(4) i {
+                    background-color: #3598db;
+                }
+                &:nth-child(5) i {
+                    background-color: #f9d012;
+                }
+            }
+        }
+    }
+    .overviewProgress {
+        position: relative;
+        h1 {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #1abc9c;
+            font-size: 18px;
+            color: #fff;
+        }
+        .overviewProgressBox {
+            width: 200px;
+            margin: 10px auto;
+        }
+        p {
+            font-size: 12px;
+            color: #343434;
+            text-align: center;
+        }
+        .overviewProgressBtn {
+            b {
+                position: absolute;
+                top: 150px;
+                left: 8px;
+                width: 12px;
+                height: 20px;
+                background: url(../../img/arrow-prev.png) 0 0 no-repeat;
+                cursor: pointer;
+            }
+            b.next {
+                left: auto;
+                right: 8px;
+                background: url(../../img/arrow-next.png) 0 0 no-repeat;
+            }
+            b.disabled {
+                opacity: 0.5;
+            }
+        }
     }
     .overviewBlock {
         margin-top: 20px;
         padding: 0 20px 20px 20px;
         background-color: #fff;
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        .overviewBlockTips {
+            padding: 5px 0;
+            overflow: hidden;
+            p {
+                float: right;
+                width: 60px;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+                color: #fff;
+                text-align: center;
+                background-color: #3598db;
+            }
+        }
         .column>div {
             height: 120px;
             a {
@@ -31,7 +117,7 @@
                 }
             }
         }
-        .columns:first-child {
+        .columns:nth-child(2) {
             .column:nth-child(odd)>div {
                 background-color: #3598db;
             }
@@ -40,7 +126,6 @@
             }
         }
         .columns:last-child {
-            margin-top: 10px;
             .column:nth-child(odd)>div {
                 background-color: #27c7cd;
             }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { PieChart, Pie, Sector } from 'recharts'
-const data = [{ name: '85%', value: 85 }, { name: 'Group B', value: 15 }]
+const data_one = [{ name: '85%', value: 85 }, { name: 'Group B', value: 15 }]
+const data_two = [{ name: '60%', value: 60 }, { name: 'Group B', value: 40 }]
 
 const renderActiveShape = (props) => {
     // const RADIAN = Math.PI / 180
@@ -38,7 +39,8 @@ const TwoLevelPieChart = React.createClass({
     getDefaultProps() {
         return {
             height: 400,
-            width: 800
+            width: 800,
+            state: 's1'
         }
     },
     getInitialState() {
@@ -49,26 +51,36 @@ const TwoLevelPieChart = React.createClass({
     componentDidMount() {
         document.getElementsByClassName('recharts-pie-sector')[1].getElementsByTagName('path')[0].setAttribute('fill', '#d5eeff')
     },
+    renderContent() {
+        let state = this.props.state
+        let data
+        if (state == 's1') {
+            data = data_one
+        } else if (state == 's2') {
+            data = data_two
+        }
+        return (
+            <div>
+                <PieChart width={parseInt(this.props.width) } height={parseInt(this.props.height) } >
+                    <Pie
+                        activeIndex={this.state.activeIndex}
+                        activeShape={renderActiveShape}
+                        data={data}
+                        cx={100}
+                        cy={100}
+                        innerRadius={60}
+                        outerRadius={80}
+                        fill="#3598db"/>
+                </PieChart>
+            </div>
+        )
 
-
-    onPieEnter(data, index) {
-        this.setState({
-            activeIndex: index,
-        })
     },
     render() {
         return (
-            <PieChart width={parseInt(this.props.width) } height={parseInt(this.props.height) } >
-                <Pie
-                    activeIndex={this.state.activeIndex}
-                    activeShape={renderActiveShape}
-                    data={data}
-                    cx={300}
-                    cy={200}
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="#3598db"/>
-            </PieChart>
+            <div>
+                {this.renderContent() }
+            </div>
         )
     }
 })
