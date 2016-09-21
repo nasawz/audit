@@ -239,8 +239,24 @@ const Clue = React.createClass({
                 <div className="clueResultContent">
                     等待省数据综合分析结果...
                 </div>
+
             )
         }
+    },
+    renderBtm(){
+        let cc4 = require('../../../img/c4.jpg')
+        let cc5 = require('../../../img/c5.jpg')
+        if(this.state.result){
+            return(
+                <div className=" bBottom">
+                    <img src={cc4} />
+                    <img src={cc5} />
+                </div>
+            )
+        }else{
+            return <div />
+        }
+
     },
     render () {
 
@@ -300,10 +316,7 @@ const Clue = React.createClass({
                                         {this.renderRightBtm()}
 
                                     </div>
-                                    <div className=" bBottom">
-                                        <img src={require('../../../img/c4.jpg')} />
-                                        <img src={require('../../../img/c5.jpg')} />
-                                    </div>
+                                    {this.renderBtm()}
                                 </div>
                             </div>
                         </div>

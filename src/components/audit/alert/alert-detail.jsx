@@ -43,17 +43,21 @@ const AlertDetail = React.createClass({
     },
     renderImg(){
         let content =  <div />
+        let pp2 = require('../../../img/p2.jpg')
+        let pp3 = require('../../../img/p3.jpg')
+        let pp4 = require('../../../img/p4.jpg')
+        let cc = ''
         if(this.state.sta){
             if(this.state.status){
-                content = <img src={require('../../../img/p2.jpg')} />
+                cc = pp2
             }else{
-                content =  <img src={require('../../../img/p3.jpg')} />
+                cc = pp3
             }
         }else{
-            content =  <img src={require('../../../img/p4.jpg')} />
+            cc = pp4
         }
 
-        return content;
+        return <img src={cc} />;
     },
     render () {
         let H = window.innerHeight + 'px'
@@ -65,7 +69,7 @@ const AlertDetail = React.createClass({
                     <p className="boxTop">{this.props.tit}
                         <i className="dele" data-target="1" onClick={this.closeAlert}></i>
                     </p>
-                    <div className='flex-middle flex-center' style={{minHeight:'100px'}}>
+                    <div className='flex-middle flex-center' style={{minHeight:'100px',marginTop:'16px',marginBottom:'20px'}}>
                         {this.renderImg() }
                         <div className="aBox">
                             <div className="l" onClick={this.ChangePic}></div>
