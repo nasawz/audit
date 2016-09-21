@@ -277,7 +277,7 @@ const Overview = React.createClass({
                                 <img src={require('../../../img/progress-pic.jpg')} />
                             </div>
                         </AlertChart>
-                        <AlertChart show={this.state.showCapitalAlert} close={this.closeAlert} title='资金管理' >
+                        <AlertChart show={this.state.showCapitalAlert} close={this.closeAlert} title='账户管理' >
                         		<h3>
                         			定期归帐管理
                                     <i className="qizi zise"></i>
