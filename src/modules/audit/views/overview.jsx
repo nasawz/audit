@@ -22,7 +22,48 @@ const Overview = React.createClass({
     componentDidMount() {
         this.props.actions.sayHello('Overview')
     },
+    getInitialState() {
+        return {
+            idx: 1
+        }
+    },
+    handleClickPrev() {
+        if (this.state.idx == 1) return
+        this.setState({
+            idx: 1
+        })
+    },
+    handleClickNext() {
+        console.log(this.state.idx);
+        if (this.state.idx == 2) return
+        this.setState({
+            idx: 2
+        })
+    },
+    renderProgress() {
+        if (this.state.idx == 1) {
+            return (
+                <div>
+                    <div className="overviewProgressBox">
+                        <TwoLevelPieChart width={200} height={200} state="s1" />
+                    </div>
+                    <p>省公司数据准备情况</p>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div className="overviewProgressBox">
+                        <TwoLevelPieChart width={200} height={200} state="s2" />
+                    </div>
+                    <p>省公司数据准备</p>
+                </div>
+            )
+        }
+    },
     render () {
+        let prevCls = this.state.idx == 1 ? 'prev disabled' : 'prev';
+        let nextCls = this.state.idx == 2 ? 'next disabled' : 'next';
         return (
             <div>
                 <HeaderBar />
@@ -54,7 +95,11 @@ const Overview = React.createClass({
                                 <div className="column">
                                     <div ref='overviewProgress' className="overviewProgress">
                                         <h1>数据准备进度</h1>
-                                        <TwoLevelPieChart />
+                                        { this.renderProgress() }
+                                        <div className="overviewProgressBtn">
+                                            <b className={prevCls} onClick={this.handleClickPrev}></b>
+                                            <b className={nextCls} onClick={this.handleClickNext}></b>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
