@@ -272,12 +272,13 @@ const Brace = React.createClass({
                 <HeaderBar />
                 <div>
                     <SideNavBar>
-                        <SideNavBarItem icon="home" path="" />
-                        <SideNavBarItem icon="overview" path="" />
-                        <SideNavBarItem icon="circle" path="" />
-                        <SideNavBarItem icon="chart" path="" />
-                        <SideNavBarItem icon="clue" path="" />
-                        <SideNavBarItem icon="brace" path="" selected />
+                        <SideNavBarItem icon="home" path={navConf.leftnav[0]} />
+                        <SideNavBarItem icon="overview" path={navConf.leftnav[1]} />
+                        <SideNavBarItem icon="circle" path={navConf.leftnav[2]} />
+                        <SideNavBarItem icon="chart" path={navConf.leftnav[3]} />
+                        <SideNavBarItem icon="clue" path={navConf.leftnav[4]} />
+                        <SideNavBarItem icon="brace" path={navConf.leftnav[5]} selected />
+                        <SideNavBarItem icon="creategroup" path={navConf.leftnav[6]}  />
                     </SideNavBar>
                     <ContentWapper>
                         <div className="brace">

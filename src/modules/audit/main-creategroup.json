@@ -1,0 +1,40 @@
+{
+    "dev":{
+        "title":"新建工作组",
+        "filename":"audit-creategroup",
+        "chunks":{
+            "vendor":{
+                "attr":{
+                    "js":"",
+                    "css":""
+                }
+            },
+            "audit-creategroup":{
+                "attr":{
+                    "js":"",
+                    "css":""
+                }
+            }
+        }
+    },
+    "pub":{
+        "title":"新建工作组",
+        "filename":"audit-creategroup",
+        "chunks":{
+            "libs/react": null,
+            "libs/react-dom": null,
+            "vendor":{
+                "attr":{
+                    "js":"",
+                    "css":""
+                }
+            },
+            "audit-creategroup":{
+                "attr":{
+                    "js":"",
+                    "css":""
+                }
+            }
+        }
+    }
+}
