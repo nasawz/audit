@@ -40,10 +40,13 @@ const Pan = React.createClass({
         }
         return (
             <div className='pan flex-container flex-center flex-middle'>
-                <div className={classNames(bgClasses)}>
+                <div className={classNames(bgClasses)} style={{    position: 'relative'}}>
                     <div className={classNames(arrClasses)} onClick={this.changeState}>
+                    
                     </div>
-                    <span>审计线索</span>
+                    <div onClick={this.changeState} style={{
+                        position: 'absolute',left:0,top:'48%',width:'100%',textAlign:'center',fontSize:'18px'
+                    }}>审计线索</div>
                 </div>
             </div>
         )

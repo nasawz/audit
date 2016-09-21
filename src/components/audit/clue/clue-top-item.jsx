@@ -11,7 +11,7 @@ const ClueTopItem = React.createClass({
         }
     },
     render () {
-        let cls = this.props.cls + ' ClueTopItem';
+        let cls = this.props.cls + ' ClueTopItem is-one-quarter';
 
         return (
             <div className={cls}>
