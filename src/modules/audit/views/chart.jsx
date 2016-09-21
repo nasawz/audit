@@ -4,7 +4,6 @@
 import React from 'react'
 
 import PureRenderDecoratorMixin from '../../common/pure-render-decorator-mixin.js'
-
 import NavigateMixin from '../../common/navigate-mixin.js'
 
 import HeaderBar from 'audit/bar/header-bar.jsx'
@@ -14,11 +13,28 @@ import ContentWapper from 'audit/layout/content-wapper.jsx'
 
 import navConf from '../nav-config.js'
 
+import AlertChart from '../../../components/audit/alert/alertChart.jsx'
+
 const Chart = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
+    handleClick(e) {
+        let path = e.currentTarget.getAttribute('data-path')
+        window.location.href = path;
+    },
+    renderAlert(){
+    	this.setState({
+    		showAlert:true,
+    	});
+    },
+    closeAlert(){
+    	this.setState({
+    		showAlert:false,
+    	});
+    },
     downPointFun(){
     	this.setState({
-    		downPoint:!this.state.downPoint
+    		downPoint:!this.state.downPoint,
+    		outerLi:'none',
     	});
     },
     downLiFun(){
@@ -28,6 +44,7 @@ const Chart = React.createClass({
     },
     innerLiFun(param){
     	this.setState({
+    		showModule:param,
     		downPoint:!this.state.downPoint,
     		outerLi:this.state.outerLi=='none'?'block':'none',
     	});
@@ -36,11 +53,200 @@ const Chart = React.createClass({
    		return{
    			downPoint:true,
    			outerLi:'none',
-   			showModule:2
+   			showModule:1,
+   			showAlert:false,
    		}
    	},
     componentDidMount() {
-        this.props.actions.sayHello('Chart')
+        this.props.actions.sayHello('Chart');
+    },
+    renderListCont(){
+    	if(this.state.showModule==1){
+    		return(
+    			<div className="columns">
+					<div className="column">
+						<div className="module">
+							<div className="moduleTop">	
+								<div className="titLeft">
+									<div className="textT">经营业绩考核指标和重点通报指标是否作假</div>
+								</div>
+								<div className="titRight">
+									<img src={require('../../../img/icon-question.png')}  onClick={this.renderAlert} />
+								</div>
+
+							</div>
+							<div className="moduleMiddel">
+								<img src={require('../../../img/chartNo1.jpg')} />
+							</div>
+							<div className="moduleBottom">
+								<div className="botTop">问题严重城市：芜湖市  淮南市  淮北市</div>
+								<div className="botBot">
+									<div className="leftEdit">
+										<span data-path='xxxxx' onClick={this.handleClick}>编辑</span>
+									</div>
+									<div className="rightInfo">
+										<span data-path='xxxxx' onClick={this.handleClick}>详情</span>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div className="column">
+						<div className="module">
+							<div className="moduleTop">	
+								<div className="titLeft">
+									<div className="textT">实名制制度落实情况</div>
+								</div>
+								<div className="titRight">
+									<img src={require('../../../img/icon-question.png')} />
+								</div>
+
+							</div>
+							<div className="moduleMiddel">
+								<img src={require('../../../img/chartNo2.jpg')} />
+							</div>
+							<div className="moduleBottom">
+								<div className="botTop">问题严重城市：黄山市  阜阳市  宿州市</div>
+								<div className="botBot">
+									<div className="leftEdit">
+										<span>编辑</span>
+									</div>
+									<div className="rightInfo">
+										<span>详情</span>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div className="column">
+						<div className="module">
+							<div className="moduleTop">	
+								<div className="titLeft">
+									<div className="textT">有价卡管理</div>
+								</div>
+								<div className="titRight">
+									<img src={require('../../../img/icon-question.png')} />
+								</div>
+
+							</div>
+							<div className="moduleMiddel">
+								<img src={require('../../../img/chartNo3.jpg')} />
+							</div>
+							<div className="moduleBottom">
+								<div className="botTop">问题严重城市：池州市  明光市  界首市</div>
+								<div className="botBot">
+									<div className="leftEdit">
+										<span>编辑</span>
+									</div>
+									<div className="rightInfo">
+										<span>详情</span>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div className="column">
+						<div className="module">
+							<div className="moduleTop">	
+								<div className="titLeft">
+									<div className="textT">个人客户大额欠费套利</div>
+								</div>
+								<div className="titRight">
+									<img src={require('../../../img/icon-question.png')} />
+								</div>
+
+							</div>
+							<div className="moduleMiddel">
+								<img src={require('../../../img/chartNo4.jpg')} />
+							</div>
+							<div className="moduleBottom">
+								<div className="botTop">问题严重城市：合肥市  蚌埠市  滁州市</div>
+								<div className="botBot">
+									<div className="leftEdit">
+										<span>编辑</span>
+									</div>
+									<div className="rightInfo">
+										<span>详情</span>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+    		);
+    	}
+    	if(this.state.showModule==2){
+    		return(
+    			<div className="columns">
+					<div className="column">
+						<div className="module">
+							<div className="moduleTop">	
+								<div className="titLeft">
+									<div className="textT">虚假开通集团业务</div>
+								</div>
+								<div className="titRight">
+									<img src={require('../../../img/icon-question.png')} />
+								</div>
+
+							</div>
+							<div className="moduleMiddel">
+								<img src={require('../../../img/chartNo5.jpg')} />
+							</div>
+							<div className="moduleBottom">
+								<div className="botTop">问题严重城市：巢湖市  安庆市  淮北市</div>
+								<div className="botBot">
+									<div className="leftEdit">
+										<span>编辑</span>
+									</div>
+									<div className="rightInfo">
+										<span>详情</span>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div className="column">
+						<div className="module">
+							<div className="moduleTop">	
+								<div className="titLeft">
+									<div className="textT">集团欠费</div>
+								</div>
+								<div className="titRight">
+									<img src={require('../../../img/icon-question.png')} />
+								</div>
+
+							</div>
+							<div className="moduleMiddel">
+								<img src={require('../../../img/chartNo6.png')} />
+							</div>
+							<div className="moduleBottom">
+								<div className="botTop">问题严重城市：明光市  池州市  六安市</div>
+								<div className="botBot">
+									<div className="leftEdit">
+										<span>编辑</span>
+									</div>
+									<div className="rightInfo">
+										<span>详情</span>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div className="column">
+						
+					</div>
+					<div className="column">
+						
+					</div>
+				</div>
+    		);
+    	}
     },
     render () {
     	let topsideClass='topside ';
@@ -84,10 +290,15 @@ const Chart = React.createClass({
 								<div className="downPoint" onClick={this.downPointFun}>
 								</div>
 							</div>
+							<div className="listCont">
+								{this.renderListCont()}
+								
+							</div>
                     	</div>
 
                     </ContentWapper>
                 </div>
+                <AlertChart show={this.state.showAlert} close={this.closeAlert} />
             </div>
         )
     }
