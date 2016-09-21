@@ -2,6 +2,7 @@
 	position: relative;
 	width: 100%;
 	font-family: "Microsoft YaHei";
+	padding:30px 30px 0 30px;
 	.topside{
 		position: absolute;
 		top: 0px;
@@ -67,6 +68,75 @@
 
 			.downPoint{
 				top: 0;
+			}
+		}
+	}
+	.listCont{
+		.module{
+			width: 100%;
+			height: 350px;
+			color: #fff;
+			.moduleTop{
+				height: 54px;
+				background-color: #3598db;
+				display: -webkit-box;
+    			display: -webkit-flex;
+    			display: flex;
+				.titLeft{
+					font-size: 14px;
+					padding:0 8px;
+					-webkit-box-flex: 1;
+				    -webkit-flex: 1;
+				    flex: 1;
+				    width: 0%;	
+
+				    .textT{
+				    	display: table-cell;
+				    	vertical-align: middle; 
+				    	height: 54px;
+				    	font-size: 14px;
+				    }
+				}
+				.titRight{
+					flex:none;
+					width: 34px;
+					height: 54px;
+					text-align: center;
+					img{margin-top: 15px}
+				}
+			}
+			.moduleMiddel{
+				height: 222px;
+				text-align: center;
+				background-color: #8bcbf7;
+
+			}
+			.moduleBottom{
+				.botTop{
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					background-color: #5aa8ea;
+					font-size: 12px;
+				}
+				.botBot{
+					height: 32px;
+					background-color: #3598db;
+					font-size: 14px;
+					line-height: 32px;
+					.leftEdit{
+						width: 50%;
+						text-align: center;
+						float: left;
+						border-right: 1px solid #fff;
+					}
+					.rightInfo{
+						width: 50%;
+						text-align: center;
+						float: right;
+					}
+					span{cursor: pointer;}
+				}
 			}
 		}
 	}
