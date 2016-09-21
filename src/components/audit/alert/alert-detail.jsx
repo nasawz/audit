@@ -65,7 +65,7 @@ const AlertDetail = React.createClass({
                     <p className="boxTop">{this.props.tit}
                         <i className="dele" data-target="1" onClick={this.closeAlert}></i>
                     </p>
-                    <div className='flex-middle flex-center' style={{minHeight:'100px', margin:'10px'}}>
+                    <div className='flex-middle flex-center' style={{minHeight:'100px'}}>
                         {this.renderImg() }
                         <div className="aBox">
                             <div className="l" onClick={this.ChangePic}></div>
