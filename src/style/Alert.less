@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
     z-index: 1111;
-    
+
     border-radius: 4px;
     .alertBottom{
         position: absolute;
@@ -82,7 +82,9 @@
             font-weight: bold;
         }
         .alertCont{
+            max-height: 550px;
             padding: 0 20px;
+            overflow-y: auto;
             h3{
                 height: 40px;
                 color: #3598db;
@@ -100,6 +102,15 @@
                     &.zise{
                         background: url("../img/icon-Qizi-zise.png") no-repeat;
                     }
+                    &.lanse{
+                        background: url("../img/icon-Qizi-lanse.png") no-repeat;
+                    }
+                    &.lvse{
+                        background: url("../img/icon-Qizi-lvse.png") no-repeat;
+                    }
+                    &.huangse{
+                        background: url("../img/icon-Qizi-huangse.png") no-repeat;
+                    }
                 }
             }
             li{
@@ -109,7 +120,7 @@
                 margin-bottom: 10px
             }
         }
-        
+
     }
 
 }
