@@ -5,12 +5,18 @@ import '../../../style/ClueTopItem.less'
  * 头部header
  */
 const ClueTopItem = React.createClass({
+    showAlertChaer(){
+        if(this.props.onShow){
+            this.props.onShow()
+        }
+    },
     render () {
-        let cls = this.props.cls + ' ClueTopItem'
+        let cls = this.props.cls + ' ClueTopItem';
+
         return (
             <div className={cls}>
                 <div className="item">
-                    <i className="btnIcon">
+                    <i className="btnIcon" onClick={this.showAlertChaer }>
                         <img src={require('../../../img/c9.png')} />
                     </i>
                     <p>{this.props.content}</p>

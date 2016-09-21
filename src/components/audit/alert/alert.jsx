@@ -14,38 +14,37 @@ const Alert = React.createClass({
         })
     },
     goFinish(){
+        let This=this
         this.setState({
             status:false
         })
 
         setTimeout(function(){
-            // alert('111')
+            This.props.closeF()
         },1000)
     },
     closeAlert(e){
-        if(e.target.getAttribute('data-target') == '1'){
-            this.props.showFun(false)
-
-        }
+        e.stopPropagation()
+        e.preventDefault()
+        this.props.close()
 
     },
+
     renderContent(){
         if(this.state.status){
             return(
                 <sapn>执行</sapn>
             )
         }else{
-            return(<img src={require('../../../img/loading.gif')} />)
+            return(<sapn>执行<img src={require('../../../img/loading.png')}/> </sapn> )
         }
     },
     render () {
         let H = window.innerHeight+'px'
-        let show = 'block'
-        if(this.props.show){
-            show= 'block'
-        }
+        let show = this.props.show?'block':'none'
+
         return (
-            <div className="AlertBox" style={{minHeight:H,display:show}} data-target="1" onClick={this.closeAlert}>
+            <div className="AlertBox" style={{minHeight:H,display:show}} data-target="1" >
                 <div className="box">
                     <p className="boxTop">省数据管理
                         <i className="dele" data-target="1" onClick={this.closeAlert}></i>
@@ -54,6 +53,9 @@ const Alert = React.createClass({
                     <a className="pIs" onClick={this.goFinish}>
                         {this.renderContent() }
                     </a>
+                </div>
+                <div className='alertBottom' onClick={this.closeAlert}>
+
                 </div>
             </div>
         )
