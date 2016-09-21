@@ -72,6 +72,7 @@ var prodConfig = {
             'redux': 'redux/dist/redux.min',
             'react-redux': 'react-redux/dist/react-redux',
             'safe': path.join(configWebpack.path.src, '/modules/common/safe.jsx'),
+            'audit': path.join(configWebpack.path.src, '/components/audit'),
             // 'utils': path.join(configWebpack.path.src, '/js/common/utils'),
             // 'spin': path.join(configWebpack.path.src, '/js/common/spin'),
             // 'spinner': path.join(configWebpack.path.src, '/page/common/components/spinner/'),
