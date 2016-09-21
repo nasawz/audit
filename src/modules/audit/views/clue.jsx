@@ -6,6 +6,7 @@ import PureRenderDecoratorMixin from '../../common/pure-render-decorator-mixin.j
 
 import NavigateMixin from '../../common/navigate-mixin.js'
 import ClueTopItem from '../../../components/audit/clue/clue-top-item.jsx'
+import Pan from '../../../components/audit/pan/pan.jsx'
 import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
@@ -34,7 +35,9 @@ const Clue = React.createClass({
                     <ContentWapper>
                         <div className="columns clueBox">
                             <div className="column is-4 clueLeft">
-                                <div>转盘</div>
+                                <div>
+                                    <Pan />
+                                </div>
                                 <div className="clueResult">
                                     <p>综合发现</p>
                                     <div className="clueResultContent">
@@ -55,7 +58,14 @@ const Clue = React.createClass({
                                     <div className="columns bTop">
                                         <div className="column cLeft">
                                             <div className="cItem">
-                                                
+                                                <p className="p1">发现疑似超低流量资费套餐</p>
+                                                <p className="p2">
+                                                    <span>221</span>个
+                                                </p>
+                                                <p className="p3">
+                                                    问题严重城市：芜湖    淮南    滁州
+                                                </p>
+                                                <p className="p4"></p>
                                             </div>
                                         </div>
                                         <div className="column cRight">1</div>
