@@ -24,7 +24,7 @@ const Overview = React.createClass({
                 <div>
                     <SideNavBar></SideNavBar>
                     <ContentWapper>
-                        <TwoLevelPieChart width='600' height='300'/>
+                        <TwoLevelPieChart width='200' height='200'/>
                        
                     </ContentWapper>
                 </div>
