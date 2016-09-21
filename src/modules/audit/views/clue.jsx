@@ -33,6 +33,10 @@ const Clue = React.createClass({
             this.setState({
                 page:'s1'
             })
+        }else{
+            this.setState({
+                page:'s2'
+            })
         }
     },
     cAlert(){
@@ -102,8 +106,8 @@ const Clue = React.createClass({
                             <i className="icon">
                                 <img src={require('../../../img/c2.png')} />
                             </i>
-                            <a href="../../../libs/8g.xlsx">《流量超过8G的用户清单和收入》</a>
-                            <a className="look" href="../../../libs/8g.xlsx">查看</a>
+                            <a href="./8g.xlsx">《流量超过8G的用户清单和收入》</a>
+                            <a className="look" href="./8g.xlsx">查看</a>
                         </p>
                     </div>
                     <p className="tit">集团数据发现</p>
@@ -170,8 +174,8 @@ const Clue = React.createClass({
                     <i className="icon">
                         <img src={require('../../../img/c2.png')} />
                     </i>
-                    <a href="../../../libs/zd.xlsx">《低资费高流量套餐清单》</a>
-                    <a className="look" href="../../../libs/zd.xlsx">查看</a>
+                    <a href="./libs/zd.xlsx">《低资费高流量套餐清单》</a>
+                    <a className="look" href="./d.xlsx">查看</a>
                 </p>
             )
 
