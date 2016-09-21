@@ -11,6 +11,10 @@ import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 
+import SimpleLineChart from 'audit/charts/simple-line-chart.jsx'
+import StackedBarChart from 'audit/charts/stacked-bar-chart.jsx'
+import TwoLevelPieChart from 'audit/charts/two-level-pie-chart.jsx'
+
 import navConf from '../nav-config.js'
 
 const Overview = React.createClass({
@@ -35,7 +39,8 @@ const Overview = React.createClass({
                         <div className="overview">
                             <div className="columns">
                                 <div className="column is-three-quarters">
-                                    <div className="overviewChart">
+                                    <div ref='overviewChart' className="overviewChart">
+                                        <TwoLevelPieChart/>
 
                                     </div>
                                 </div>

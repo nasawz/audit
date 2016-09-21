@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 const data_one = [
@@ -31,30 +32,47 @@ const SimpleLineChart = React.createClass({
     getDefaultProps() {
         return {
             height: 300,
-            width: 600,
-            status: 'one'
+            state: 's1'
         }
     },
-    render() {
-        let status = this.props.status
-        let data
-        if (status == 'one') {
-            data = data_one
-        } else if (status == 'two') {
-            data = data_two
+    componentDidMount() {
+
+        let el = ReactDOM.findDOMNode(this)
+        let width = el.getBoundingClientRect().width
+        this.setState({ width: width })
+
+    },
+    renderContent() {
+        if (this.state && this.state.width) {
+            let state = this.props.state
+            let data
+            if (state == 's1') {
+                data = data_one
+            } else if (state == 's2') {
+                data = data_two
+            }
+            return (
+                <div>
+                    <LineChart width={parseInt(this.state.width) } height={parseInt(this.props.height) } data={data}
+                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <XAxis dataKey="name"/>
+                        <YAxis/>
+                        <CartesianGrid strokeDasharray="3 3"/>
+                        <Tooltip/>
+                        <Line type="monotone" dataKey="value" stroke="#9857b3" activeDot={{ r: 8 }}/>
+                    </LineChart>
+                </div>
+            )
+        } else {
+            return <div />
         }
+
+    },
+    render() {
         return (
             <div>
-                <LineChart width={parseInt(this.props.width) } height={parseInt(this.props.height) } data={data}
-                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                    <XAxis dataKey="name"/>
-                    <YAxis/>
-                    <CartesianGrid strokeDasharray="3 3"/>
-                    <Tooltip/>
-                    <Line type="monotone" dataKey="value" stroke="#9857b3" activeDot={{ r: 8 }}/>
-                </LineChart>
+                {this.renderContent() }
             </div>
-
         )
     }
 })

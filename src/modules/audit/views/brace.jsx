@@ -11,6 +11,7 @@ import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 import SimpleLineChart from 'audit/charts/simple-line-chart.jsx'
+import Map from 'audit/map/map.jsx'
 
 import navConf from '../nav-config.js'
 
@@ -21,7 +22,11 @@ const Brace = React.createClass({
     },
     render () {
         return (
-            <SimpleLineChart status='two'/>
+            <div>
+                <SimpleLineChart/>
+            <Map/>
+            </div>
+            
         )
     }
 })

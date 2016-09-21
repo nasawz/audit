@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 const x_data_key = ['不适用', '总部', '总部和省', '省']
@@ -36,13 +37,18 @@ const CustomizedAxisTick = React.createClass({
 const StackedBarChart = React.createClass({
     getDefaultProps() {
         return {
-            height: 300,
-            width: 600
+            height: 300
         }
     },
-    render() {
-        return (
-            <BarChart width={parseInt(this.props.width) } height={parseInt(this.props.height) } data={data}
+    componentDidMount() {
+        let el = ReactDOM.findDOMNode(this)
+        let width = el.getBoundingClientRect().width
+        this.setState({ width: width })
+    },
+    renderContent() {
+        if (this.state && this.state.width) {
+            return (
+                <BarChart width={parseInt(this.state.width) } height={parseInt(this.props.height) } data={data}
                 margin={{ top: 10, right: 10, left: 20, bottom: 55 }}>
                 <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>} />
                 <YAxis/>
@@ -53,6 +59,19 @@ const StackedBarChart = React.createClass({
                 <Bar dataKey={x_data_key[2]} stackId="a" fill="#3598db" />
                 <Bar dataKey={x_data_key[3]} stackId="a" fill="#f9d012" />
             </BarChart>
+            )
+        } else {
+            return <div />
+        }
+
+    },
+
+    render() {
+        return (
+            <div>
+                {this.renderContent() }
+            </div>
+            
         )
     }
 })
