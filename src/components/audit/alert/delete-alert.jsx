@@ -29,7 +29,7 @@ const DeleteAlert = React.createClass({
                     <p className="boxTop">提醒
                         <i className="dele" data-target="1" onClick={this.closeAlert}></i>
                     </p>
-                    <div className='flex-middle flex-center' style={{minHeight:'100px'}}>是否新建工作组？</div>
+                    <div className='flex-middle flex-center' style={{minHeight:'100px'}}>是否删除工作组？</div>
                     <div className='flex-center'>
                         <div>
                             <a className="button is-dark" style={{ width: '120px', marginRight: '20px' }} onClick={this.closeAlert}>忽略</a>
