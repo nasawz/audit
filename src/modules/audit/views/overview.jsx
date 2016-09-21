@@ -51,6 +51,7 @@ const Overview = React.createClass({
                                 </div>
                             </div>
                             <div className="overviewBlock">
+                                <div className="overviewBlockTips"><p>打包下载</p></div>
                                 <div className="columns">
                                     <div className="column">
                                         <div>
