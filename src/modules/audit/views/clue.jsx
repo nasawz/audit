@@ -19,7 +19,7 @@ const Clue = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     uploadeFile(){
         this.setState({
-            show:true
+            show:false
         })
     },
     goReload(ns){
@@ -77,8 +77,8 @@ const Clue = React.createClass({
                             <i className="icon">
                                 <img src={require('../../../img/c2.png')} />
                             </i>
-                            <a href="javascript:;">《流量超过8G的用户清单和收入》</a>
-                            <a className="look" href="javascript:;">查看</a>
+                            <a href="../../../libs/8g.xlsx">《流量超过8G的用户清单和收入》</a>
+                            <a className="look" href="../../../libs/8g.xlsx">查看</a>
                         </p>
                     </div>
                     <p className="tit">集团数据发现</p>
@@ -154,9 +154,10 @@ const Clue = React.createClass({
         }
     },
     render () {
+        // <Alert showFun={this.state.show}/>
+
         return (
             <div>
-                <Alert showFun={this.state.show}/>
                 <HeaderBar />
                 <div>
                     <SideNavBar>
