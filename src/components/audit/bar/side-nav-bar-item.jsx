@@ -7,7 +7,9 @@ import React from 'react'
 const SideNavBarItem = React.createClass({
     render () {
         return (
-            <div>SideNavBarItem</div>
+            <div className="SideNavBarItem">
+                <i className={this.props.icon}></i>
+            </div>
         )
     }
 })

@@ -8,7 +8,6 @@ import NavigateMixin from '../../common/navigate-mixin.js'
 
 import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
-import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 
 const Overview = React.createClass({
@@ -21,13 +20,7 @@ const Overview = React.createClass({
             <div>
                 <HeaderBar />
                 <div>
-                    <SideNavBar>
-                        <SideNavBarItem />
-                        <SideNavBarItem selected />
-                        <SideNavBarItem />
-                        <SideNavBarItem />
-                        <SideNavBarItem />
-                    </SideNavBar>
+                    <SideNavBar></SideNavBar>
                     <ContentWapper>
                         {this.props.name} say hello
                     </ContentWapper>
