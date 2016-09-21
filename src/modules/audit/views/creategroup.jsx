@@ -53,7 +53,7 @@ getInitialState() {
                         <SideNavBarItem icon="chart" path={navConf.leftnav[3]} />
                         <SideNavBarItem icon="clue" path={navConf.leftnav[4]} />
                         <SideNavBarItem icon="brace" path={navConf.leftnav[5]}  />
-                        <SideNavBarItem icon="creategroup" path={navConf.leftnav[6]}  selected  />
+                        <SideNavBarItem icon="xcreategroup" path={navConf.leftnav[6]}  selected  />
                     </SideNavBar>
                     <ContentWapper>
                         <div className="clueBox creategroup">
