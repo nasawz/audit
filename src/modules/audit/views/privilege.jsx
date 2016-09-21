@@ -4,14 +4,32 @@ import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
+import AlertPrivilege from 'audit/alert/alert-privilege.jsx'
 
 import navConf from '../nav-config.js'
 
 
 const Privilege = React.createClass({
+    showAlert(){
+        this.setState({
+            show:true,
+        })
+    },
+    closeAlert(data){
+
+    	this.setState({
+    		showAlert:false,
+    	})
+    },
+    getInitialState(){
+        return{
+            showAlert:true
+        }
+    },
     render () {
         return (
             <div>
+                <AlertPrivilege show={this.state.showAlert} close={this.closeAlert} tit="权限设置"/>
                 <HeaderBar />
                 <div>
                     <SideNavBar>
@@ -26,16 +44,7 @@ const Privilege = React.createClass({
                     <ContentWapper>
                         <div className='privilegeBox'>
                             <h3>配置权限</h3>
-                            <table className="table">
-                                <th>
-                                    <td>11</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </th>
-                                
-                            </table>
+111
                         </div>
                     </ContentWapper>
                 </div>
