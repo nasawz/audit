@@ -18,6 +18,21 @@ const data = [
     { name: '作风建设', '不适用': 0, '总部': 0, '总部和省': 8, '省': 0 },
 ]
 
+
+
+const CustomizedAxisTick = React.createClass({
+  render () {
+    const {x, y, stroke, payload} = this.props;
+
+   	return (
+    	<g transform={`translate(${x},${y})`}>
+        <text x={0} y={0} dx={0} dy={16} textAnchor="end" fill="#666"
+            transform="rotate(-35)">{payload.value}</text>
+      </g>
+    );
+  }
+});
+
 const StackedBarChart = React.createClass({
     getDefaultProps() {
         return {
@@ -28,12 +43,11 @@ const StackedBarChart = React.createClass({
     render() {
         return (
             <BarChart width={this.props.width} height={this.props.height} data={data}
-                margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                <XAxis dataKey="name"/>
+                margin={{ top: 10, right: 10, left: 20, bottom: 55 }}>
+                <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>} />
                 <YAxis/>
                 <CartesianGrid strokeDasharray="3 3"/>
                 <Tooltip/>
-                <Legend />
                 <Bar dataKey={x_data_key[0]} stackId="a" fill="#9857b3" />
                 <Bar dataKey={x_data_key[1]} stackId="a" fill="#1abc9c" />
                 <Bar dataKey={x_data_key[2]} stackId="a" fill="#3598db" />
