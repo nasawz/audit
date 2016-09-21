@@ -1,0 +1,176 @@
+.brace {
+    padding: 30px;
+    .braceMenu {
+        .column>div {
+            height: 110px;
+            background-color: #23313f;
+            line-height: 110px;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+        }
+        .column:first-child {
+            &>div {
+                background: #1abc9c url(../../img/braceMenu-1.png) 100% 100% no-repeat;
+            }
+        }
+        .column:nth-child(2) {
+            &>div {
+                background: #23313f url(../../img/braceMenu-2.png) 100% 100% no-repeat;
+            }
+        }
+        .column:nth-child(3) {
+            &>div {
+                background: #23313f url(../../img/braceMenu-3.png) 100% 100% no-repeat;
+            }
+        }
+        .column:nth-child(4) {
+            &>div {
+                background: #23313f url(../../img/braceMenu-4.png) 100% 100% no-repeat;
+            }
+        }
+        .column:nth-child(5) {
+            &>div {
+                background: #23313f url(../../img/braceMenu-5.png) 100% 100% no-repeat;
+            }
+        }
+    }
+    .braceSubMenu {
+        padding: 16px 40px 36px;;
+        .column {
+            height: 35px;
+            padding: 0;
+            line-height: 35px;
+            text-align: center;
+            background-color: #1abc9c;
+            font-size: 14px;
+            color: #fff;
+            &:first-child {
+                background-color: #11a285;
+            }
+        }
+    }
+    .braceProvince, .braceDiscovery, .braceInventory, .braceData {
+        height: 366px;
+        background-color: #fff;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        h1 {
+            height: 42px;
+            line-height: 42px;
+            border-bottom: 1px solid #dfdfdf;
+            font-size: 18px;
+            color: #343434;
+            text-indent: 18px;
+        }
+    }
+    .braceProvinceMap {
+        width: 100%;
+        height: 324px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .braceDiscovery {
+        h1 {
+            border-bottom: none;
+        }
+        .braceDiscoveryTab {
+            padding: 0 30px;
+            span {
+                display: inline-block;
+                width: 49.5%;
+                height: 40px;
+                margin-right: 0.5%;
+                background-color: #9857b3;
+                line-height: 40px;
+                text-align: center;
+                font-size: 14px;
+                color: #fff;
+            }
+            span.active {
+                background-color: #794390;
+            }
+        }
+    }
+    .braceInventory {
+        position: relative;
+        .braceInventoryBd {
+            .state1 {
+                font-size: 14px;
+                color: #999;
+                line-height: 150px;
+                text-align: center;
+            }
+            .state2 {
+                padding-left: 14px;
+                span {
+                    display: block;
+                    font-size: 14px;
+                    color: #000;
+                    margin-top: 20px;
+                }
+                p {
+                    padding-left: 16px;
+                    background: url(../../img/icon-doc.png) 0 2px no-repeat;
+                    font-size: 14px;
+                    color: #666;
+                }
+            }
+        }
+        .braceInventoryBtn {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            span {
+                display: inline-block;
+                width: 50%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 14px;
+                color: #fff;
+                box-sizing: border-box;
+                border-right: 1px solid rgba(255, 255, 255, 0.4);
+                background-color: #1abc9c;
+                cursor: pointer;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    .braceData {
+        height: auto;
+        td, th{
+            border-right:1px solid #dfdfdf;
+            border-bottom:1px solid #dfdfdf;
+            border-collapse:collapse;
+        }
+        th{
+            background-color:#394653;
+            color:white;
+            text-align:center;
+            // width:65px;
+        	height:37px;
+        	font-family: "Microsoft YaHei";
+            font-size: 14px;
+            font-weight:normal;
+            vertical-align: middle;
+        }
+        td{
+            text-align:center;
+            font-family: "Microsoft YaHei";
+            font-size: 12px;
+            vertical-align: middle;
+        }
+        .tl{
+            width:99px;
+            height:37px;
+        }
+    }
+}

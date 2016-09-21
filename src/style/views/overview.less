@@ -10,6 +10,20 @@
         padding: 0 20px 20px 20px;
         background-color: #fff;
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        .overviewBlockTips {
+            padding: 5px 0;
+            overflow: hidden;
+            p {
+                float: right;
+                width: 60px;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+                color: #fff;
+                text-align: center;
+                background-color: #3598db;
+            }
+        }
         .column>div {
             height: 120px;
             a {
@@ -31,7 +45,7 @@
                 }
             }
         }
-        .columns:first-child {
+        .columns:nth-child(2) {
             .column:nth-child(odd)>div {
                 background-color: #3598db;
             }
@@ -40,7 +54,6 @@
             }
         }
         .columns:last-child {
-            margin-top: 10px;
             .column:nth-child(odd)>div {
                 background-color: #27c7cd;
             }
