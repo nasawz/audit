@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../../style/HeaderBar.less'
 
 /**
  * 头部header
@@ -7,7 +7,7 @@ import React from 'react'
 const HeaderBar = React.createClass({
     render () {
         return (
-            <div>HeaderBar</div>
+            <div className="HeaderBar">HeaderBar</div>
         )
     }
 })
