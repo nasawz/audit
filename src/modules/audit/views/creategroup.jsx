@@ -91,7 +91,7 @@ const CreateGroup = React.createClass({
                                                 <label className="label">选择部门</label>
                                             </div>
                                             <div className="control" style={{ flexGrow: 14 }}>
-                                                <p className="control">
+                                                <div className="control">
                                                     <Select showSearch
                                                         style={{ width: 200 }}
                                                         placeholder="请选择部门"
@@ -103,7 +103,7 @@ const CreateGroup = React.createClass({
                                                         <Option value="江西移动">江西移动</Option>
                                                         <Option value="安徽移动">安徽移动</Option>
                                                     </Select>
-                                                </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="control is-horizontal" style={{ marginBottom: '30px' }}>
