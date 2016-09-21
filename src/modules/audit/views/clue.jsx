@@ -23,7 +23,7 @@ const Clue = React.createClass({
     render () {
         return (
             <div>
-                <Alert />
+                <Alert show={true}/>
                 <HeaderBar />
                 <div>
                     <SideNavBar>

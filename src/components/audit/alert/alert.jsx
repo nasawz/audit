@@ -5,7 +5,7 @@ const Alert = React.createClass({
     getInitialState(){
         return {
             cls:'content',
-            show:true,
+            show:this.props.show,
         }
     },
     changeClass(){
@@ -17,7 +17,6 @@ const Alert = React.createClass({
 
     },
     closeAlert(e){
-        console.log(e.target.getAttribute('data-target'),'00000',e)
         if(e.target.getAttribute('data-target') == '1'){
             this.setState({
                 show:false
