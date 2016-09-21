@@ -6,6 +6,7 @@ import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 import AlertPrivilege from 'audit/alert/alert-privilege.jsx'
+import AlertDetail from 'audit/alert/alert-detail.jsx'
 import { Table, Icon } from 'antd'
 
 import navConf from '../nav-config.js'
@@ -18,21 +19,41 @@ const Privilege = React.createClass({
             show:true,
         })
     },
+    showAlertDetail(){
+        this.setState({
+            showAlertDetail:true,
+        })
+    },
     closeAlert(data){
 
     	this.setState({
     		showAlert:false,
     	})
     },
+    closeAlertDeail(){
+        this.setState({
+    		showAlertDetail:false,
+    	})
+    },
     getInitialState(){
         return{
-            showAlert:true
+            showAlert:false,
+            showAlertDetail:false,
         }
+    },
     openDelete(){
         console.log('openDelete');
     },
     openPrivilege(){
         console.log('openPrivilege');
+        this.setState({
+    		showAlert:true,
+    	})
+    },
+    openDetail(){
+        this.setState({
+            showAlertDetail:true,
+        })
     },
     render () {
 const columns = [ {
@@ -102,6 +123,7 @@ const data = [{
         return (
             <div>
                 <AlertPrivilege show={this.state.showAlert} close={this.closeAlert} tit="权限设置"/>
+                <AlertDetail show={this.state.showAlertDetail} close={this.closeAlertDeail} tit="审计点分配详情"/>
                 <HeaderBar />
                 <div>
                     <SideNavBar>
@@ -123,6 +145,7 @@ const data = [{
                                 }}>
                               <div className="column">
                                   <Table pagination={false} bordered columns={columns} dataSource={data} />
+                                  <div className="link" onClick={this.openDetail}>审计点分配详情</div>
                               </div>
                             </div>
                         </div>
