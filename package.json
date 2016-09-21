@@ -57,6 +57,7 @@
     "react-hot-loader": "^3.0.0-beta.4",
     "react-mini-router": "git+https://github.com/nasawz/react-mini-router.git",
     "react-redux": "^4.4.5",
+    "recharts": "^0.14.2",
     "redux": "^3.6.0",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
