@@ -12,16 +12,47 @@ import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 import Map from 'audit/map/map.jsx'
 import SimpleLineChart from 'audit/charts/simple-line-chart.jsx'
+import Alert from '../../../components/audit/alert/alert.jsx'
+
 import navConf from '../nav-config.js'
+
 const Brace = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     getInitialState() {
         return {
-            showState2: false
+            showState2: false,
+            showAlert: false,
+            result: false
         }
     },
     componentDidMount() {
         this.props.actions.sayHello('Brace')
+    },
+    uploadeFile(){
+        this.setState({
+    		showAlert:true,
+    	})
+    },
+    showAlert(){
+        this.setState({
+            show:true,
+        })
+    },
+    cAlert(){
+        this.setState({
+            show:false,
+        })
+    },
+    cAlert1(){
+        this.setState({
+    		show:false,
+            result:true
+    	})
+    },
+    closeAlert(data){
+    	this.setState({
+    		showAlert:false,
+    	})
     },
     handleClick(e) {
         let idx = e.currentTarget.getAttribute('data-idx')
@@ -41,6 +72,22 @@ const Brace = React.createClass({
             return <SimpleLineChart height={240} state="s1" />
         } else {
             return <SimpleLineChart height={240} state="s2" />
+        }
+    },
+    renderInventoryState() {
+        if (!this.state.result) {
+            return <p className="state1">待上传</p>
+        } else {
+            return (
+                <div className="state2">
+                    <span>未上传：</span>
+                    <p>综合补贴率计算公式</p>
+                    <span>已上传：</span>
+                    <p>终端类营销案明细信息</p>
+                    <span>模板下载：</span>
+                    <p><a href="../../../libs/brace.xlsx">终端类营销案明细信息</a></p>
+                </div>
+            )
         }
     },
     renderData() {
@@ -278,7 +325,7 @@ const Brace = React.createClass({
                         <SideNavBarItem icon="chart" path={navConf.leftnav[3]} />
                         <SideNavBarItem icon="clue" path={navConf.leftnav[4]} />
                         <SideNavBarItem icon="brace" path={navConf.leftnav[5]} selected />
-                        <SideNavBarItem icon="creategroup" path={navConf.leftnav[6]}  />
+                        <SideNavBarItem icon="xcreategroup" path={navConf.leftnav[6]}  />
                     </SideNavBar>
                     <ContentWapper>
                         <div className="brace">
@@ -324,20 +371,10 @@ const Brace = React.createClass({
                                     <div className="braceInventory">
                                         <h1>省数据清单</h1>
                                         <div className="braceInventoryBd">
-                                            {/*状态一*/}
-                                            {/*<p className="state1">待上传</p>*/}
-                                            {/*状态二*/}
-                                            <div className="state2">
-                                                <span>未上传：</span>
-                                                <p>综合补贴率计算公式</p>
-                                                <span>已上传：</span>
-                                                <p>终端类营销案明细信息</p>
-                                                <span>模板下载：</span>
-                                                <p>终端类营销案明细信息</p>
-                                            </div>
+                                            { this.renderInventoryState() }
                                         </div>
                                         <div className="braceInventoryBtn">
-                                            <span>上传</span>
+                                            <span onClick={this.showAlert}>上传</span>
                                             <span>执行</span>
                                         </div>
                                     </div>
@@ -352,6 +389,7 @@ const Brace = React.createClass({
                                 </div>
                             </div>
                         </div>
+                        <Alert show={this.state.show} close={this.cAlert} closeF={this.cAlert1} />
                     </ContentWapper>
                 </div>
             </div>

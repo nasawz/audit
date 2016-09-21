@@ -29,7 +29,6 @@ const Clue = React.createClass({
         })
     },
     goReload(ns){
-        alert(ns)
         if(ns == 's1'){
             this.setState({
                 page:'s1'
