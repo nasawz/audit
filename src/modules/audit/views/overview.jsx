@@ -88,6 +88,12 @@ const Overview = React.createClass({
             )
         }
     },
+    goClue() {
+        window.location.href = navConf.leftnav[4];
+    },
+    goChart() {
+        window.location.href = navConf.leftnav[3];
+    },
     render () {
         let prevCls = this.state.idx == 1 ? 'prev disabled' : 'prev';
         let nextCls = this.state.idx == 2 ? 'next disabled' : 'next';
@@ -253,7 +259,9 @@ const Overview = React.createClass({
                             </div>
                         </div>
                         <AlertChart show={this.state.showProgressAlert} close={this.closeAlert} title='省公司数据准备情况' top="1%" >
-                        	<img src={require('../../../img/progress-pic.jpg')} />
+                            <div onClick={this.goClue}>
+                                <img src={require('../../../img/progress-pic.jpg')} />
+                            </div>
                         </AlertChart>
                         <AlertChart show={this.state.showCapitalAlert} close={this.closeAlert} title='资金管理' >
                         		<h3>
@@ -281,10 +289,11 @@ const Overview = React.createClass({
                                     <li>审计发现：未发现数据异常</li>
                                 </ul>
                         </AlertChart>
-                        <AlertChart show={this.state.showCapitalAlert} close={this.closeAlert} title='大众市场' >
-                        		<h3>
+                        <AlertChart show={this.state.showMarketAlert} close={this.closeAlert} title='大众市场' top="1%" >
+                            <div>
+                        		<h3 onClick={this.goChart}>
                         			经营业绩考核指标和重点通报指标是否作假
-                                    <i className="qizi zise"></i>
+                                    <i className="qizi huangse"></i>
                         		</h3>
                                 <ul>
                                     <li>审计说明：区分经营业绩考核指标和重点通报指标，是否存在指标作假情况，例如养卡养机、伪造业务量、不知情定制等。</li>
@@ -292,7 +301,7 @@ const Overview = React.createClass({
                                 </ul>
                                 <h3>
                                     营销活动的合规合理性
-                                    <i className="qizi zise"></i>
+                                    <i className="qizi lanse"></i>
                                 </h3>
                                 <ul>
                                     <li>审计说明：针对全省性的、营销资源投入比较集中的营销活动进行审核，关注真实性、合规性和效益性，审查决策的合规合理性。</li>
@@ -300,7 +309,7 @@ const Overview = React.createClass({
                                 </ul>
                                 <h3>
                                     实名制制度落实情况
-                                    <i className="qizi zise"></i>
+                                    <i className="qizi lvse"></i>
                                 </h3>
                                 <ul>
                                     <li>审计说明：实名制制度落实情况，2015年11月30日前是否完成全部客户实名登记率在90%以上。</li>
@@ -308,7 +317,7 @@ const Overview = React.createClass({
                                 </ul>
                                 <h3>
                                     有价卡管理
-                                    <i className="qizi zise"></i>
+                                    <i className="qizi huangse"></i>
                                 </h3>
                                 <ul>
                                     <li>审计说明：有价卡赠送是否在BOSS系统实现，是否存在虚假营销案套取有价卡的情况，是否违规向大众市场赠送有价卡，是否将赠送的有价卡挪作他用，用于关键指标保有。</li>
@@ -316,7 +325,7 @@ const Overview = React.createClass({
                                 </ul>
                                 <h3>
                                     吉祥号码管理
-                                    <i className="qizi zise"></i>
+                                    <i className="qizi lvse"></i>
                                 </h3>
                                 <ul>
                                     <li>审计说明：是否建立了吉祥号码相关的管理办法或流程，关注吉祥号码审批权限管理及权限分布，吉祥号码资源是否由少数代理商或其他形式代理单位掌握，吉祥号码销售过程中，除最低消费外，是否额外收取其他费用，是否存在内部人员倒卖号码行为。</li>
@@ -330,6 +339,7 @@ const Overview = React.createClass({
                                     <li>审计说明：关注家宽业务真实性与合规性，是否存在通过虚假开通宽带提升客户数和收入的情况（2016.8.15）。融合宽带业务收入拆分是否规范，是否存在明显人为调高宽带收入的情况；融合宽带业务涉及的终端财务处理是否合理，是否存在将赠送的互联网电视盒子等家宽设备列入促销费之外以规避可控销售费用的情况，列入公司存货或者低值易耗品的ONU、ONT等家宽用户端联网设备，是否按照合同约定到期回收（2016年4月15日前根据合同约定列账，2016年4月15日起统一列入主营业务成本）。</li>
                                     <li>审计发现:(不适用大数据审计）</li>
                                 </ul>
+                            </div>
                         </AlertChart>
                     </ContentWapper>
                 </div>
