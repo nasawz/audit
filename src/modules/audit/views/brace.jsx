@@ -12,7 +12,7 @@ import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 import Map from 'audit/map/map.jsx'
 import SimpleLineChart from 'audit/charts/simple-line-chart.jsx'
-
+import navConf from '../nav-config.js'
 const Brace = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     getInitialState() {
