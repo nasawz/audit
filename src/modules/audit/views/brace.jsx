@@ -10,6 +10,8 @@ import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
+import Map from 'audit/map/map.jsx'
+import SimpleLineChart from 'audit/charts/simple-line-chart.jsx'
 
 const Brace = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
@@ -22,17 +24,24 @@ const Brace = React.createClass({
         this.props.actions.sayHello('Brace')
     },
     handleClick(e) {
-        
+        let idx = e.currentTarget.getAttribute('data-idx')
+        this.setState({
+            showState2: idx == 1 ? false : true
+        });
     },
     renderMap() {
         if (!this.state.showState2) {
-            return <img src={require('../../../img/brace-map1.png')} />
+            return <Map state="s1" />
         } else {
-            return <img src={require('../../../img/brace-map2.png')} />
+            return <Map state="s2" />
         }
     },
     renderChart() {
-
+        if (!this.state.showState2) {
+            return <SimpleLineChart height={240} state="s1" />
+        } else {
+            return <SimpleLineChart height={240} state="s2" />
+        }
     },
     renderData() {
         if (!this.state.showState2) {
@@ -256,6 +265,8 @@ const Brace = React.createClass({
         }
     },
     render () {
+        let cls1 = this.state.showState2 ? '' : 'active'
+        let cls2 = this.state.showState2 ? 'active' : ''
         return (
             <div>
                 <HeaderBar />
@@ -301,10 +312,11 @@ const Brace = React.createClass({
                                     <div className="braceDiscovery">
                                         <h1>审计发现</h1>
                                         <div className="braceDiscoveryTab">
-                                            <span onClick={this.handleClick}>发现违规补贴金额共433234.05元</span>
-                                            <span onClick={this.handleClick}>发现3245个违规用户</span>
+                                            <span className={cls1} data-idx="1" onClick={this.handleClick}>发现违规补贴金额共433234.05元</span>
+                                            <span className={cls2} data-idx="2" onClick={this.handleClick}>发现3245个违规用户</span>
                                         </div>
                                         <h1>趋势分析</h1>
+                                        { this.renderChart() }
                                     </div>
                                 </div>
                                 <div className="column is-2">
