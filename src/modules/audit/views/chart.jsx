@@ -66,7 +66,7 @@ const Chart = React.createClass({
     			<div className="columns">
 					<div className="column">
 						<div className="module">
-							<div className="moduleTop">	
+							<div className="moduleTop">
 								<div className="titLeft">
 									<div className="textT">经营业绩考核指标和重点通报指标是否作假</div>
 								</div>
@@ -89,12 +89,12 @@ const Chart = React.createClass({
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div className="column">
 						<div className="module">
-							<div className="moduleTop">	
+							<div className="moduleTop">
 								<div className="titLeft">
 									<div className="textT">实名制制度落实情况</div>
 								</div>
@@ -117,12 +117,12 @@ const Chart = React.createClass({
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div className="column">
 						<div className="module">
-							<div className="moduleTop">	
+							<div className="moduleTop">
 								<div className="titLeft">
 									<div className="textT">有价卡管理</div>
 								</div>
@@ -145,12 +145,12 @@ const Chart = React.createClass({
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div className="column">
 						<div className="module">
-							<div className="moduleTop">	
+							<div className="moduleTop">
 								<div className="titLeft">
 									<div className="textT">个人客户大额欠费套利</div>
 								</div>
@@ -173,7 +173,7 @@ const Chart = React.createClass({
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -184,7 +184,7 @@ const Chart = React.createClass({
     			<div className="columns">
 					<div className="column">
 						<div className="module">
-							<div className="moduleTop">	
+							<div className="moduleTop">
 								<div className="titLeft">
 									<div className="textT">虚假开通集团业务</div>
 								</div>
@@ -207,12 +207,12 @@ const Chart = React.createClass({
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div className="column">
 						<div className="module">
-							<div className="moduleTop">	
+							<div className="moduleTop">
 								<div className="titLeft">
 									<div className="textT">集团欠费</div>
 								</div>
@@ -235,14 +235,14 @@ const Chart = React.createClass({
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div className="column">
-						
+
 					</div>
 					<div className="column">
-						
+
 					</div>
 				</div>
     		);
@@ -293,7 +293,7 @@ const Chart = React.createClass({
 							</div>
 							<div className="listCont">
 								{this.renderListCont()}
-								
+
 							</div>
                     	</div>
 

@@ -19,8 +19,8 @@ const Clue = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
     uploadeFile(){
         this.setState({
-            show:true
-        })
+    		showAlert:true,
+    	})
     },
     goReload(ns){
         alert(ns)
@@ -30,10 +30,24 @@ const Clue = React.createClass({
             })
         }
     },
+    closeAlert(data){
+
+    	this.setState({
+    		showAlert:false,
+    	})
+    },
+    closeAlert1(){
+        this.setState({
+    		showAlert:false,
+            result:true
+    	})
+    },
     getInitialState(){
         return{
             show:false,
-            page:'s2'
+            page:'s2',
+            showAlert:false,
+            result:false,
         }
     },
     componentDidMount() {
@@ -77,8 +91,8 @@ const Clue = React.createClass({
                             <i className="icon">
                                 <img src={require('../../../img/c2.png')} />
                             </i>
-                            <a href="javascript:;">《流量超过8G的用户清单和收入》</a>
-                            <a className="look" href="javascript:;">查看</a>
+                            <a href="../../../libs/8g.xlsx">《流量超过8G的用户清单和收入》</a>
+                            <a className="look" href="../../../libs/8g.xlsx">查看</a>
                         </p>
                     </div>
                     <p className="tit">集团数据发现</p>
@@ -108,24 +122,70 @@ const Clue = React.createClass({
             )
         }
     },
+
+    renderRightP2(){
+
+        if(this.state.result){
+            return(<p className="p2">
+                <span>101</span>个
+            </p>)
+        }else{
+            return(
+                <p className="p2">
+                    <span>待分析</span>
+                </p>
+            )
+        }
+    },
+    renderRightP3(){
+        if(this.state.result){
+            return(
+                <p className="p3">
+                    问题严重城市：宣城    六安    池州
+                </p>
+            )
+        }else{
+            return(
+                <p className="p3">
+                    问题严重城市：
+                </p>
+            )
+        }
+    },
+    renderRightP4(){
+        console.log(this.state.result,'222');
+        if(this.state.result){
+            return(
+                <p className="p4">
+                    <i className="icon">
+                        <img src={require('../../../img/c2.png')} />
+                    </i>
+                    <a href="../../../libs/8g.xlsx">《低资费高流量套餐清单》</a>
+                    <a className="look" href="../../../libs/8g.xlsx">查看</a>
+                </p>
+            )
+
+        }else{
+            return(
+                <p className="p4" >
+                    <i className="icon">
+                        <img src={require('../../../img/c3.png')} />
+                    </i>
+                    <a href="javascript:;" onClick={this.uploadeFile}>上传数据文件</a>
+                </p>
+            )
+        }
+    },
     renderRightBtm(){
         if(this.state.page == 's2'){
             return(
                 <div className="column cRight">
                     <div className="cItem green">
                         <p className="p1">发现疑似低流量资费套餐</p>
-                        <p className="p2">
-                            <span>待分析</span>
-                        </p>
-                        <p className="p3">
-                            问题严重城市：
-                        </p>
-                        <p className="p4" >
-                            <i className="icon">
-                                <img src={require('../../../img/c3.png')} />
-                            </i>
-                            <a href="javascript:;" onClick={this.uploadeFile}>上传数据文件</a>
-                        </p>
+                            {this.renderRightP2()}
+                            {this.renderRightP3()}
+                            {this.renderRightP4()}
+
                     </div>
                     <p className="tit">省数据发现</p>
                 </div>
@@ -135,28 +195,44 @@ const Clue = React.createClass({
                 <div className="column cRight">
                     <div className="cItem green">
                         <p className="p1">大额资金支付管控情况</p>
-                        <p className="p2">
-                            <span>待分析</span>
-                        </p>
-                        <p className="p3">
-                            问题严重城市：
-                        </p>
-                        <p className="p4" >
-                            <i className="icon">
-                                <img src={require('../../../img/c3.png')} />
-                            </i>
-                            <a href="javascript:;" onClick={this.uploadeFile}>上传数据文件</a>
-                        </p>
+                            <p className="p2">
+                                <span>待分析</span>
+                            </p>
+                            <p className="p3">
+                                问题严重城市：
+                            </p>
+                            <p className="p4" >
+                                <i className="icon">
+                                    <img src={require('../../../img/c3.png')} />
+                                </i>
+                                <a href="javascript:;" onClick={this.uploadeFile}>上传数据文件</a>
+                            </p>
                     </div>
                     <p className="tit">省数据发现</p>
                 </div>
             )
         }
     },
+    renderResult(){
+        if( this.state.result){
+                return(
+                    <div className="clueResultContent">
+                        集团数据通过粗略的分析发现疑似问题套餐221个，经过省公司精确的明细数据进一步核实，发现共101个问题套餐，双方共同发现的套餐数为80个。
+                    </div>
+                )
+        }else{
+            return(
+                <div className="clueResultContent">
+                    等待省数据综合分析结果...
+                </div>
+            )
+        }
+    },
     render () {
+
         return (
             <div>
-                <Alert showFun={this.state.show}/>
+                <Alert show={this.state.showAlert} close={this.closeAlert} closeF={this.closeAlert1} />
                 <HeaderBar />
                 <div>
                     <SideNavBar>
@@ -176,9 +252,7 @@ const Clue = React.createClass({
                                 </div>
                                 <div className="clueResult">
                                     <p>综合发现</p>
-                                    <div className="clueResultContent">
-                                        等待省数据综合分析结果...
-                                    </div>
+                                    {this.renderResult()}
                                 </div>
                             </div>
                             <div className="column clueRight">
