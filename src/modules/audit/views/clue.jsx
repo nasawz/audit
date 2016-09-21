@@ -5,6 +5,9 @@ import React from 'react'
 import PureRenderDecoratorMixin from '../../common/pure-render-decorator-mixin.js'
 
 import NavigateMixin from '../../common/navigate-mixin.js'
+import HeaderBar from 'audit/bar/header-bar.jsx'
+import SideNavBar from 'audit/bar/side-nav-bar.jsx'
+import ContentWapper from 'audit/layout/content-wapper.jsx'
 
 const Clue = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
@@ -13,7 +16,15 @@ const Clue = React.createClass({
     },
     render () {
         return (
-            <div>{this.props.name} say hello</div>
+            <div>
+                <HeaderBar />
+                <div>
+                    <SideNavBar></SideNavBar>
+                    <ContentWapper>
+                        {this.props.name} say hello
+                    </ContentWapper>
+                </div>
+            </div>
         )
     }
 })
