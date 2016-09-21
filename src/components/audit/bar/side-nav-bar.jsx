@@ -13,7 +13,7 @@ const SideNavBar = React.createClass({
                     <a href="javascript:void(0)"><i className="home"></i></a>
                 </div>
                 <div className="SideNavBarItem">
-                    <a href="javascript:void(0)"><i className="home"></i></a>
+                    <a href="javascript:void(0)"><i className="overview"></i></a>
                 </div>
                 <div className="SideNavBarItem">
                     <a href="javascript:void(0)"><i className="home"></i></a>

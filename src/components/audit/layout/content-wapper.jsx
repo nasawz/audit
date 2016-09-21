@@ -8,7 +8,7 @@ const ContentWapper = React.createClass({
     render () {
         let {children} = this.props
         return (
-            <div>{children}</div>
+            <div className="ContentWapper">{children}</div>
         )
     }
 })
