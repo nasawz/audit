@@ -119,7 +119,6 @@ const CreateGroup = React.createClass({
                                         </div>
                                         <div className='flex-center'>
                                             <div>
-                                                <a className="button is-dark" style={{ width: '120px', marginRight: '20px' }}>取消</a>
                                                 <a href='audit-privilege.html' className="button is-info" style={{ width: '120px', marginRight: '20px' }}>下一步</a>
                                             </div>
                                         </div>
