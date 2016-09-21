@@ -9,7 +9,10 @@ import NavigateMixin from '../../common/navigate-mixin.js'
 
 import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
+import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
+
+import navConf from '../nav-config.js'
 
 const Chart = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
@@ -48,7 +51,14 @@ const Chart = React.createClass({
             <div>
                 <HeaderBar />
                 <div>
-                    <SideNavBar></SideNavBar>
+                    <SideNavBar>
+                        <SideNavBarItem icon="home" path={navConf.leftnav[0]} />
+                        <SideNavBarItem icon="overview" path={navConf.leftnav[1]}  />
+                        <SideNavBarItem icon="circle" path={navConf.leftnav[2]} />
+                        <SideNavBarItem icon="chart" path={navConf.leftnav[3]} selected/>
+                        <SideNavBarItem icon="clue" path={navConf.leftnav[4]}  />
+                        <SideNavBarItem icon="brace" path={navConf.leftnav[5]}  />
+                    </SideNavBar>
                     <ContentWapper>
                     	<div className="chartPart">
 							<div className={topsideClass}>
@@ -72,10 +82,10 @@ const Chart = React.createClass({
 									</ul>
 								</div>
 								<div className="downPoint" onClick={this.downPointFun}>
-								</div>								
+								</div>
 							</div>
                     	</div>
-                        
+
                     </ContentWapper>
                 </div>
             </div>
