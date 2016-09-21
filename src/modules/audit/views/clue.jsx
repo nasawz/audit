@@ -174,8 +174,8 @@ const Clue = React.createClass({
                     <i className="icon">
                         <img src={require('../../../img/c2.png')} />
                     </i>
-                    <a href="./libs/zd.xlsx">《低资费高流量套餐清单》</a>
-                    <a className="look" href="./d.xlsx">查看</a>
+                    <a href="./zd.xlsx">《低资费高流量套餐清单》</a>
+                    <a className="look" href="./zd.xlsx">查看</a>
                 </p>
             )
 

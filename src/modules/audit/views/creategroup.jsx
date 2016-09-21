@@ -91,7 +91,7 @@ const CreateGroup = React.createClass({
                                                 <div className="control">
                                                     <Select showSearch
                                                         style={{ width: 200 }}
-                                                        placeholder="请选择部门"
+                                                        placeholder="总部内审部"
                                                         optionFilterProp="children"
                                                         notFoundContent="无法找到"
                                                         >

@@ -104,35 +104,35 @@ const Privilege = React.createClass({
       key: '1',
       name: '小明',
       index: 1,
-      part: '北京移动 > 城区三分公司>政企中心',
-      point: '50'
+      part: '总部内审部',
+      point: '0'
     }, {
         key: '2',
         name: '小张',
         index: 2,
-        part: '北京移动 > 城区三分公司>政企中心',
-        point: '50'
+        part: '总部内审部',
+        point: '0'
       }
       , {
         key: '3',
         name: '小王',
         index: 3,
-        part: '北京移动 > 城区三分公司>政企中心',
-        point: '50'
+        part: '总部内审部',
+        point: '0'
       }
       , {
         key: '4',
         name: '小李',
         index: 4,
-        part: '北京移动 > 城区三分公司>政企中心',
-        point: '50'
+        part: '总部内审部',
+        point: '0'
       }
       , {
         key: '5',
         name: '小赵',
         index: 5,
-        part: '北京移动 > 城区三分公司>政企中心',
-        point: '50'
+        part: '总部内审部',
+        point: '0'
       }
     ];
     return (
