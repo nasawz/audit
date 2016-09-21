@@ -23,7 +23,7 @@
         position: absolute;
         left: 50%;
         margin-left: -169px;
-        top: 22%;
+        top: 20%;
         padding: 0 0 20px;
         z-index: 2;
         p.boxTop{
@@ -75,16 +75,38 @@
         }
     }
     .boxChart{
-        font-family: "Microsoft HaYei";
+        font-family: "Microsoft YaHei";
         width: 724px;
         margin-left: -362px;
+        .boxTop{
+            font-weight: bold;
+        }
         .alertCont{
             padding: 0 20px;
             h3{
                 height: 40px;
                 color: #3598db;
-                border-botom:1px solid #33598;
-                line-height: 40px;
+                border-bottom:1px solid #3598db;
+                padding-top: 17px;
+                font-size: 14px;
+                margin-bottom: 16px;
+                position: relative;
+                .qizi{
+                    position: absolute;
+                    bottom: 5px;
+                    right: 0;
+                    width: 17px;
+                    height: 15px;
+                    &.zise{
+                        background: url("../img/icon-Qizi-zise.png") no-repeat;
+                    }
+                }
+            }
+            li{
+                background: url("../img/chart-alertLi.png") no-repeat 17px 7px;
+                padding-left: 30px;
+                line-height: 18px;
+                margin-bottom: 10px
             }
         }
 

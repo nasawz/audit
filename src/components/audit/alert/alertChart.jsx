@@ -16,17 +16,16 @@ const AlertChart = React.createClass({
         return (
             <div className="AlertBox" style={{minHeight:H,display:show}}>
                 <div className="box boxChart">
-                    <p className="boxTop">经营业绩考核指标和重点通报指标是否作假
+                    <p className="boxTop">{this.props.title}
                         <i className="dele" data-target="1" onClick={this.closeAlert}></i>
+                    }
                     </p>
                     <div className="alertCont" onClick={this.changeClass}>
-                        <h3>审计点说明</h3>
+                        { this.props.children }
                     </div>
                     
                 </div>
-                <div className='alertBottom' onClick={this.closeAlert}>
-
-                </div>
+                <div className='alertBottom' onClick={this.closeAlert}></div>
             </div>
         )
     }
