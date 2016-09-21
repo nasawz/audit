@@ -2,20 +2,7 @@ import React from 'react'
 import '../../../style/Alert.less'
 
 const AlertChart = React.createClass({
-    getInitialState(){
-        return {
-            cls:'content',
-            show:this.props.show,
-        }
-    },
-    changeClass(){
-        this.setState({
-            cls:'content content1'
-        })
-    },
-    goFinish(){
 
-    },
     closeAlert(e){
         e.stopPropagation();
         e.preventDefault();
@@ -29,11 +16,16 @@ const AlertChart = React.createClass({
         return (
             <div className="AlertBox" style={{minHeight:H,display:show}}>
                 <div className="box boxChart">
-                   
+                    <p className="boxTop">{this.props.title}
+                        <i className="dele" data-target="1" onClick={this.closeAlert}></i>
+                    }
+                    </p>
+                    <div className="alertCont" onClick={this.changeClass}>
+                        { this.props.children }
+                    </div>
+                    
                 </div>
-                <div className='alertBottom' onClick={this.closeAlert}>
-
-                </div>
+                <div className='alertBottom' onClick={this.closeAlert}></div>
             </div>
         )
     }
