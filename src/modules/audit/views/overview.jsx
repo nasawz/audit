@@ -34,14 +34,18 @@ const Overview = React.createClass({
     },
     handleClickPrev() {
         if (this.state.idx == 1) return
+        let idx = this.state.idx;
+        idx -= 1;
         this.setState({
-            idx: 1
+            idx: idx
         })
     },
     handleClickNext() {
-        if (this.state.idx == 2) return
+        if (this.state.idx == 3) return
+        let idx = this.state.idx;
+        idx += 1;
         this.setState({
-            idx: 2
+            idx: idx
         })
     },
     showAlert(e){
@@ -77,13 +81,22 @@ const Overview = React.createClass({
                     <p>省公司数据准备情况</p>
                 </div>
             )
-        } else {
+        } else if (this.state.idx == 2) {
             return (
                 <div>
                     <div className="overviewProgressBox">
                         <TwoLevelPieChart width={200} height={200} state="s2" />
                     </div>
-                    <p>省公司数据准备</p>
+                    <p>总部原数据准备情况</p>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div className="overviewProgressBox">
+                        <TwoLevelPieChart width={200} height={200} state="s3" />
+                    </div>
+                    <p>总部审计结果准备情况</p>
                 </div>
             )
         }
@@ -96,7 +109,7 @@ const Overview = React.createClass({
     },
     render () {
         let prevCls = this.state.idx == 1 ? 'prev disabled' : 'prev';
-        let nextCls = this.state.idx == 2 ? 'next disabled' : 'next';
+        let nextCls = this.state.idx == 3 ? 'next disabled' : 'next';
         return (
             <div>
                 <HeaderBar />
@@ -168,19 +181,19 @@ const Overview = React.createClass({
                                         </div>
                                     </div>
                                     <div className="column">
-                                        <div data-type="capital" onClick={this.showAlert}>
+                                        <div>
                                             <a href="javascript:void(0)" title="资金管理">资金管理</a>
                                             <ul>
-                                                <li>账户管理</li>
+                                                <li data-type="capital" onClick={this.showAlert}>账户管理</li>
                                                 <li>付款管理</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="column">
-                                        <div data-type="market" onClick={this.showAlert}>
+                                        <div>
                                             <a href="javascript:void(0)" title="在合规性审计中，审计人员应确定公司是否遵循了现行法律和法规以及专业和行业标准或合同责任的要求，即被审计单位是否遵循了特定的程序、规则或条例。例如，确定会计人员是否遵循了财务主管规定的手续，检查工资率是否符合工资法规定的最低限额，或者审查与银行签订的合同，以确信被审计单位遵守了法定要求。对审计人员来讲，进行合规性审计的第一步是确定管理层是否有一个识别现行政策、程序、标准、法律以及法规的制度；然后，审计人员应评估控制是否得到了恰当的应用或遵循；最后，该审计应得到公司是否合规的结论">业务合规性</a>
                                             <ul>
-                                                <li>大众市场</li>
+                                                <li data-type="market" onClick={this.showAlert}>大众市场</li>
                                                 <li>终端营销</li>
                                                 <li>集团客户</li>
                                                 <li>社会渠道</li>
