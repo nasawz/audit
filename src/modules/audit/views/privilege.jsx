@@ -7,6 +7,8 @@ import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
 import { Table, Icon } from 'antd'
 import DeleteAlert from '../../../components/audit/alert/delete-alert.jsx'
+import AlertPrivilege from 'audit/alert/alert-privilege.jsx'
+import AlertDetail from 'audit/alert/alert-detail.jsx'
 
 import navConf from '../nav-config.js'
 
@@ -15,20 +17,57 @@ import navConf from '../nav-config.js'
 const Privilege = React.createClass({
   openDelete() {
     this.setState({
-      showAlert: true,
+      showAlertDelete: true,
     })
   },
   openPrivilege() {
     console.log('openPrivilege');
+    this.setState({
+    		showAlert: true,
+    })
+  },
+  openDetail() {
+    this.setState({
+      showAlertDetail: true,
+    })
+  },
+  closeAlertDeail() {
+    this.setState({
+    		showAlertDetail: false,
+    })
+  },
+  showAlertDetail() {
+    this.setState({
+      showAlertDetail: true,
+    })
+  },
+  showAlert() {
+    this.setState({
+      show: true,
+    })
+  },
+    showAlertDelete() {
+    this.setState({
+      showAlertDelete: true,
+    })
+  },
+      closeAlertDelete(data) {
+
+    this.setState({
+    		showAlertDelete: false,
+    })
   },
   closeAlert(data) {
+
     this.setState({
-      showAlert: false,
+    		showAlert: false,
     })
   },
   getInitialState() {
     return {
+      showAlertDelete: false,
       showAlert: false,
+      showAlertDetail: false,
     };
   },
   render() {
@@ -111,22 +150,25 @@ const Privilege = React.createClass({
             <SideNavBarItem icon="xcreategroup" path={navConf.leftnav[6]} selected />
           </SideNavBar>
           <ContentWapper>
-            <DeleteAlert show={this.state.showAlert} close={this.closeAlert} />
-            <div className="clueBox privilege">
+            <DeleteAlert show={this.state.showAlertDelete} close={this.closeAlertDelete} />
+            <AlertPrivilege show={this.state.showAlert} close={this.closeAlert} tit="权限设置"/>
+            <AlertDetail show={this.state.showAlertDetail} close={this.closeAlertDeail} tit="审计点分配详情"/>
+            <HeaderBar />
+            <div className="clueBox privilegeBox">
               <h1 className="cardHeader">配置权限</h1>
               <div className="columns" style={{
                 padding: '10px'
               }}>
                 <div className="column">
                   <Table pagination={false} bordered columns={columns} dataSource={data} />
+                  <div className="link" onClick={this.openDetail}>审计点分配详情</div>
 
-
-                                  <div className='flex-center'>
-                                      <div style={{marginTop:'30px'}}>
-                                          <a href='audit-creategroup.html' className="button is-dark" style={{ width: '120px', marginRight: '20px' }}>上一步</a>
-                                          <a className="button is-info" style={{ width: '120px', marginRight: '20px' }}>完成</a>
-                                      </div>
-                                  </div>                  
+                  <div className='flex-center'>
+                    <div style={{ marginTop: '30px' }}>
+                      <a href='audit-creategroup.html' className="button is-dark" style={{ width: '120px', marginRight: '20px' }}>上一步</a>
+                      <a className="button is-info" style={{ width: '120px', marginRight: '20px' }}>完成</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
