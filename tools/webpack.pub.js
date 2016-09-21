@@ -38,9 +38,6 @@ var prodConfig = {
                 test: /\.css/,
                 loader: ExtractTextPlugin.extract('style', 'css', 'postcss')
             }, {
-                test: /\.(png|jpg)$/,
-                loader: 'url?limit=25000'
-            }, {
                 test: /\.(eot|woff|ttf|svg)/,
                 loader: 'file-loader?name=[name].[ext]'
             }, {
