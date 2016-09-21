@@ -41,9 +41,9 @@ const Pan = React.createClass({
         return (
             <div className='pan flex-container flex-center flex-middle'>
                 <div className={classNames(bgClasses)}>
-                    <div className={classNames(arrClasses)} onClick={this.changeState}>
-                    </div>
-                    <span>审计线索</span>
+                    <img className="panbg flex-container flex-center flex-middle" src={require('../../../img/pan-'+this.state.state+'.png')}/>
+                    <img onClick={this.changeState} className={classNames(arrClasses)} src={require('../../../img/pan-arr.png')}/>
+                    <span onClick={this.changeState} >审计线索</span>
                 </div>
             </div>
         )
