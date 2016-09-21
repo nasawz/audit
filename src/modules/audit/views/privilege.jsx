@@ -104,6 +104,12 @@ const data = [{
                                 }}>
                               <div className="column">
                                   <Table pagination={false} bordered columns={columns} dataSource={data} />
+                                  <div className='flex-center'>
+                                      <div style={{marginTop:'30px'}}>
+                                          <a href='audit-creategroup.html' className="button is-dark" style={{ width: '120px', marginRight: '20px' }}>上一步</a>
+                                          <a className="button is-info" style={{ width: '120px', marginRight: '20px' }}>完成</a>
+                                      </div>
+                                  </div>
                               </div>
                             </div>
                         </div>
