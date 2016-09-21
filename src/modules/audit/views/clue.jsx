@@ -7,6 +7,7 @@ import PureRenderDecoratorMixin from '../../common/pure-render-decorator-mixin.j
 import NavigateMixin from '../../common/navigate-mixin.js'
 import ClueTopItem from '../../../components/audit/clue/clue-top-item.jsx'
 import Pan from '../../../components/audit/pan/pan.jsx'
+import Alert from '../../../components/audit/alert/alert.jsx'
 import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import SideNavBarItem from 'audit/bar/side-nav-bar-item.jsx'
@@ -22,6 +23,7 @@ const Clue = React.createClass({
     render () {
         return (
             <div>
+                <Alert />
                 <HeaderBar />
                 <div>
                     <SideNavBar>
@@ -54,7 +56,7 @@ const Clue = React.createClass({
                                     <ClueTopItem cls="column "  link_href="http://wwww.com" link_href2="http://hhh.com" content="通过合作业务方式
 开展自有业务"/>
                                 </div>
-                                <div className="columns clueRBtm">
+                                <div className=" clueRBtm">
                                     <div className="columns bTop">
                                         <div className="column cLeft">
                                             <div className="cItem">
@@ -67,7 +69,7 @@ const Clue = React.createClass({
                                                 </p>
                                                 <p className="p4">
                                                     <i className="icon">
-                                                        <img src="../../../img/c2.png" />
+                                                        <img src={require('../../../img/c2.png')} />
                                                     </i>
                                                     <a href="javascript:;">《流量超过8G的用户清单和收入》</a>
                                                     <a className="look" href="javascript:;">查看</a>
@@ -86,7 +88,7 @@ const Clue = React.createClass({
                                                 </p>
                                                 <p className="p4">
                                                     <i className="icon">
-                                                        <img src="../../../img/c3.png" />
+                                                        <img src={require('../../../img/c3.png')} />
                                                     </i>
                                                     <a href="javascript:;">上传数据文件</a>
                                                 </p>
@@ -94,9 +96,9 @@ const Clue = React.createClass({
                                             <p className="tit">省数据发现</p>
                                         </div>
                                     </div>
-                                    <div className="bBottom">
-                                        <img src="../../../img/c4.jpg" />
-                                        <img src="../../../img/c5.jpg" />
+                                    <div className=" bBottom">
+                                        <img src={require('../../../img/c4.jpg')} />
+                                        <img src={require('../../../img/c5.jpg')} />
                                     </div>
                                 </div>
                             </div>
