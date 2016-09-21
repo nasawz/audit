@@ -65,13 +65,38 @@ const Clue = React.createClass({
                                                 <p className="p3">
                                                     问题严重城市：芜湖    淮南    滁州
                                                 </p>
-                                                <p className="p4"></p>
+                                                <p className="p4">
+                                                    <i className="icon">
+                                                        <img src="../../../img/c2.png" />
+                                                    </i>
+                                                    <a href="javascript:;">《流量超过8G的用户清单和收入》</a>
+                                                    <a className="look" href="javascript:;">查看</a>
+                                                </p>
                                             </div>
+                                            <p className="tit">集团数据发现</p>
                                         </div>
-                                        <div className="column cRight">1</div>
+                                        <div className="column cRight">
+                                            <div className="cItem green">
+                                                <p className="p1">发现疑似低流量资费套餐</p>
+                                                <p className="p2">
+                                                    <span>待分析</span>
+                                                </p>
+                                                <p className="p3">
+                                                    问题严重城市：
+                                                </p>
+                                                <p className="p4">
+                                                    <i className="icon">
+                                                        <img src="../../../img/c3.png" />
+                                                    </i>
+                                                    <a href="javascript:;">上传数据文件</a>
+                                                </p>
+                                            </div>
+                                            <p className="tit">省数据发现</p>
+                                        </div>
                                     </div>
                                     <div className="bBottom">
-
+                                        <img src="../../../img/c4.jpg" />
+                                        <img src="../../../img/c5.jpg" />
                                     </div>
                                 </div>
                             </div>

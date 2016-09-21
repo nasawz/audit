@@ -41,15 +41,19 @@
     margin: 0;
     .bTop{
         width: 100%;
+        .tit{
+            text-align: center;
+            color: #343434;
+        }
     }
     .cLeft{
 
     }
     .cItem{
         background: #f9d012;
-        width: 100%;
+        // width: 100%;
         min-height: 20px;
-        margin: 20px;
+        margin: 20px 0 8px 20px;
         p{
             text-align: center;
             font-size: 14px;
@@ -77,6 +81,59 @@
             height: 35px;
             background: #23313f;
             line-height: 35px;
+            text-align: left;
+
+            .icon{
+                width: 12px;
+                height: auto;
+                display: inline-block;
+                margin: 4px 0 0 10px;
+                img{
+                    display: inline-block;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            a{
+                text-decoration: underline;
+                color: #fff;
+                font-size: 14px;
+            }
+            a.look{
+                float: right;
+                height: 22px;
+                line-height: 20px;
+                margin-top: 6px;
+                font-size: 12px;
+                text-decoration: none;
+                padding: 2px 10px;
+                position: relative;
+                &:before{
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 1px;
+                    background: #d3d6d9;
+
+                }
+            }
+        }
+    }
+    .green{
+        background: #1abc9c;
+        .p3{
+            background: #11a285;
+        }
+    }
+    .bBottom{
+        margin: 0 20px;
+        img{
+            display: inline-block;
+            width: 50%;
+            height: auto;
         }
     }
 
