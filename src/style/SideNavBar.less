@@ -3,10 +3,37 @@
     top: 58px;
     bottom: 0;
     left: 0;
+    z-index: 99;
     width: 56px;
     background-color: #23313f;
     .SideNavBarItem {
         width: 100%;
         height: 70px;
+        i {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .home {
+            background: url(../img/icon-home.png) center center no-repeat;
+        }
+        .overview {
+            background: url(../img/icon-overview.png) center center no-repeat;
+        }
+        .circle {
+            background: url(../img/icon-circle.png) center center no-repeat;
+        }
+        .chart {
+            background: url(../img/icon-chart.png) center center no-repeat;
+        }
+        .clue {
+            background: url(../img/icon-clue.png) center center no-repeat;
+        }
+        .brace {
+            background: url(../img/icon-brace.png) center center no-repeat;
+        }
+    }
+    .SideNavBarItem.active {
+        background-color: #1abc9c;
     }
 }

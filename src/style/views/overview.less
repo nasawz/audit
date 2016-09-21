@@ -1,0 +1,52 @@
+.overview {
+    padding: 30px;
+    .overviewChart, .overviewProgress {
+        height: 280px;
+        background-color: #fff;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .overviewBlock {
+        margin-top: 20px;
+        padding: 0 20px 20px 20px;
+        background-color: #fff;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        .column>div {
+            height: 120px;
+            a {
+                display: block;
+                height: 30px;
+                line-height: 30px;
+                font-size: 14px;
+                color: #fff;
+                text-indent: 12px;
+                background: rgba(0, 0, 0, 0.1);
+            }
+            ul {
+                padding: 4px 12px;
+                li {
+                    font-size: 12px;
+                    color: #fff;
+                    line-height: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .columns:first-child {
+            .column:nth-child(odd)>div {
+                background-color: #3598db;
+            }
+            .column:nth-child(even)>div {
+                background-color: #27c7cd;
+            }
+        }
+        .columns:last-child {
+            margin-top: 10px;
+            .column:nth-child(odd)>div {
+                background-color: #27c7cd;
+            }
+            .column:nth-child(even)>div {
+                background-color: #3598db;
+            }
+        }
+    }
+}

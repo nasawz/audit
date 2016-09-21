@@ -9,24 +9,7 @@ const SideNavBar = React.createClass({
         let {children} = this.props
         return (
             <div className="SideNavBar">
-                <div className="SideNavBarItem">
-                    <a href="javascript:void(0)"><i className="home"></i></a>
-                </div>
-                <div className="SideNavBarItem">
-                    <a href="javascript:void(0)"><i className="overview"></i></a>
-                </div>
-                <div className="SideNavBarItem">
-                    <a href="javascript:void(0)"><i className="home"></i></a>
-                </div>
-                <div className="SideNavBarItem">
-                    <a href="javascript:void(0)"><i className="home"></i></a>
-                </div>
-                <div className="SideNavBarItem">
-                    <a href="javascript:void(0)"><i className="home"></i></a>
-                </div>
-                <div className="SideNavBarItem">
-                    <a href="javascript:void(0)"><i className="home"></i></a>
-                </div>
+                {children}
             </div>
         )
     }
