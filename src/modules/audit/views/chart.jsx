@@ -85,7 +85,7 @@ const Chart = React.createClass({
 										<span data-path='xxxxx' onClick={this.handleClick}>编辑</span>
 									</div>
 									<div className="rightInfo">
-										<span data-path='xxxxx' onClick={this.handleClick}>详情</span>
+										<span>详情</span>
 									</div>
 								</div>
 							</div>
@@ -169,7 +169,7 @@ const Chart = React.createClass({
 										<span>编辑</span>
 									</div>
 									<div className="rightInfo">
-										<span>详情</span>
+										<span data-path='xxxxx' onClick={this.handleClick}>详情</span>
 									</div>
 								</div>
 							</div>
