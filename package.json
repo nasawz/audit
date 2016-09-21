@@ -18,6 +18,7 @@
   "author": "nasa.wang",
   "license": "ISC",
   "dependencies": {
+    "antd": "^1.11.1",
     "autoprefixer": "^6.4.1",
     "babel": "^6.5.2",
     "babel-core": "^6.14.0",
