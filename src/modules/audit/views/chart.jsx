@@ -82,7 +82,7 @@ const Chart = React.createClass({
 								<div className="botTop">问题严重城市：芜湖市  淮南市  淮北市</div>
 								<div className="botBot">
 									<div className="leftEdit">
-										<span data-path='xxxxx' onClick={this.handleClick}>编辑</span>
+										<span data-path='../guhuabianji.html' onClick={this.handleClick}>编辑</span>
 									</div>
 									<div className="rightInfo">
 										<span>详情</span>
@@ -169,7 +169,7 @@ const Chart = React.createClass({
 										<span>编辑</span>
 									</div>
 									<div className="rightInfo">
-										<span data-path='xxxxx' onClick={this.handleClick}>详情</span>
+										<span data-path='../guhuaxiangqing.html' onClick={this.handleClick}>详情</span>
 									</div>
 								</div>
 							</div>
@@ -264,6 +264,7 @@ const Chart = React.createClass({
                         <SideNavBarItem icon="chart" path={navConf.leftnav[3]} selected/>
                         <SideNavBarItem icon="clue" path={navConf.leftnav[4]}  />
                         <SideNavBarItem icon="brace" path={navConf.leftnav[5]}  />
+                        <SideNavBarItem icon="jieguozhanshi" path={navConf.leftnav[7]}  />
                         <SideNavBarItem icon="xcreategroup" path={navConf.leftnav[6]}  />
                     </SideNavBar>
                     <ContentWapper>
