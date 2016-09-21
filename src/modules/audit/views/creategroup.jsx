@@ -95,7 +95,7 @@ const CreateGroup = React.createClass({
                                                         optionFilterProp="children"
                                                         notFoundContent="无法找到"
                                                         >
-                                                        <Option value="总部审核部">总部审核部</Option>
+                                                        <Option value="总部审核部">总部内审部</Option>
                                                         <Option value="北京移动">北京移动</Option>
                                                         <Option value="江西移动">江西移动</Option>
                                                         <Option value="安徽移动">安徽移动</Option>
