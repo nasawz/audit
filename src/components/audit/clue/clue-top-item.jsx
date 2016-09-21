@@ -10,6 +10,9 @@ const ClueTopItem = React.createClass({
         return (
             <div className={cls}>
                 <div className="item">
+                    <i className="btnIcon">
+                        <img src={require('../../../img/c9.png')} />
+                    </i>
                     <p>{this.props.content}</p>
                     <div className="btm">
                         <a href={this.props.link_href}>编辑</a>

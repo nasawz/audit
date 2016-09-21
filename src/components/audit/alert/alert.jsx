@@ -5,7 +5,7 @@ const Alert = React.createClass({
     getInitialState(){
         return {
             cls:'content',
-            show:this.props.show,
+            status:true
         }
     },
     changeClass(){
@@ -14,20 +14,34 @@ const Alert = React.createClass({
         })
     },
     goFinish(){
+        this.setState({
+            status:false
+        })
 
+        setTimeout(function(){
+            // alert('111')
+        },1000)
     },
     closeAlert(e){
         if(e.target.getAttribute('data-target') == '1'){
-            this.setState({
-                show:false
-            })
+            this.props.showFun(false)
+
         }
 
     },
+    renderContent(){
+        if(this.state.status){
+            return(
+                <sapn>执行</sapn>
+            )
+        }else{
+            return(<img src={require('../../../img/loading.gif')} />)
+        }
+    },
     render () {
         let H = window.innerHeight+'px'
-        let show = 'none'
-        if(this.state.show){
+        let show = 'block'
+        if(this.props.show){
             show= 'block'
         }
         return (
@@ -37,7 +51,9 @@ const Alert = React.createClass({
                         <i className="dele" data-target="1" onClick={this.closeAlert}></i>
                     </p>
                     <div className={this.state.cls} onClick={this.changeClass}></div>
-                    <a className="pIs" onClick={this.goFinish}>执行</a>
+                    <a className="pIs" onClick={this.goFinish}>
+                        {this.renderContent() }
+                    </a>
                 </div>
             </div>
         )
