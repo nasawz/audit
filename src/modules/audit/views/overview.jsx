@@ -9,7 +9,8 @@ import NavigateMixin from '../../common/navigate-mixin.js'
 import HeaderBar from 'audit/bar/header-bar.jsx'
 import SideNavBar from 'audit/bar/side-nav-bar.jsx'
 import ContentWapper from 'audit/layout/content-wapper.jsx'
-import StackedBarChart from 'audit/charts/stacked-bar-chart.jsx'
+// import StackedBarChart from 'audit/charts/stacked-bar-chart.jsx'
+import TwoLevelPieChart from 'audit/charts/pie-chart.jsx'
 
 const Overview = React.createClass({
     mixins:[PureRenderDecoratorMixin,NavigateMixin],
@@ -23,7 +24,7 @@ const Overview = React.createClass({
                 <div>
                     <SideNavBar></SideNavBar>
                     <ContentWapper>
-                        <StackedBarChart />
+                        <TwoLevelPieChart width='600' height='300'/>
                        
                     </ContentWapper>
                 </div>
