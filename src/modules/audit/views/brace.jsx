@@ -85,7 +85,7 @@ const Brace = React.createClass({
                     <span>已上传：</span>
                     <p>终端类营销案明细信息</p>
                     <span>模板下载：</span>
-                    <p><a href="../../../libs/brace.xlsx">终端类营销案明细信息</a></p>
+                    <p><a href="./brace.xlsx">终端类营销案明细信息</a></p>
                 </div>
             )
         }
@@ -376,7 +376,6 @@ const Brace = React.createClass({
                                         </div>
                                         <div className="braceInventoryBtn">
                                             <span onClick={this.showAlert}>上传</span>
-                                            <span>执行</span>
                                         </div>
                                     </div>
                                  </div>
