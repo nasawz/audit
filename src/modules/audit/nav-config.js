@@ -6,6 +6,7 @@ var config = {
         'audit-chart.html',
         'audit-clue.html',
         'audit-brace.html',
+        'audit-creategroup.html',
     ]
 }
 

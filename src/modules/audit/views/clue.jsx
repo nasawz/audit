@@ -242,6 +242,7 @@ const Clue = React.createClass({
                             <SideNavBarItem icon="chart" path={navConf.leftnav[3]} />
                             <SideNavBarItem icon="clue" path={navConf.leftnav[4]} selected />
                             <SideNavBarItem icon="brace" path={navConf.leftnav[5]}  />
+                            <SideNavBarItem icon="creategroup" path={navConf.leftnav[6]}  />
                     </SideNavBar>
                     <ContentWapper>
                         <div className="columns clueBox">
