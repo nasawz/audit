@@ -26,11 +26,7 @@ const CreateGroup = React.createClass({
     },
     getInitialState() {
         return {
-
-            show: false,
-            page: 's2',
             showAlert: false,
-            result: false,
             mockData: [],
             targetKeys: [],
         };
