@@ -151,7 +151,7 @@ const Overview = React.createClass({
                                 </div>
                             </div>
                             <div className="overviewBlock">
-                                <div className="overviewBlockTips"><p>打包下载</p></div>
+                                <div className="overviewBlockTips"><a href="./安徽离任审计.zip">打包下载</a></div>
                                 <div className="columns">
                                     <div className="column">
                                         <div>
