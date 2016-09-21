@@ -1,7 +1,11 @@
 import React from 'react'
 import '../../../style/Alert.less'
 
-const Alert = React.createClass({
+let cc7 = require('../../../img/c7.png')
+let cc8 = require('../../../img/c8.png')
+let ll = require('../../../img/loading.png')
+
+const Alert2 = React.createClass({
     getInitialState(){
         return {
             scls:true,
@@ -32,7 +36,6 @@ const Alert = React.createClass({
     },
 
     renderContent(){
-        let ll = require('../../../img/loading.png')
         if(this.state.status){
             return(
                 <sapn>执行</sapn>
@@ -42,8 +45,6 @@ const Alert = React.createClass({
         }
     },
     renderImg(){
-        let cc7 = require('../../../img/c7.jpg');
-        let cc8 = require('../../../img/c8.jpg');
         let cc = ''
         if(this.state.scls){
             cc = cc7
@@ -77,4 +78,4 @@ const Alert = React.createClass({
     }
 })
 
-export default Alert
+export default Alert2
