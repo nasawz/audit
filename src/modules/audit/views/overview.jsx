@@ -270,6 +270,25 @@ const Overview = React.createClass({
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div className="columns">
+                                    <div className="column">
+                                        <div>
+                                            <a href="javascript:void(0)" title="合同管理">作风建设</a>
+                                            <ul>
+                                                <li>工作作风</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div className="column"></div>
+                                    <div className="column"></div>
+                                    <div className="column"></div>
+                                    <div className="column"></div>
+                                    <div className="column"></div>
+                                </div>
+
+
                             </div>
                         </div>
                         <AlertChart show={this.state.showProgressAlert} close={this.closeAlert} title='省公司数据准备情况' top="1%" >
