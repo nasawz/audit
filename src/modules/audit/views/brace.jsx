@@ -61,6 +61,9 @@ const Brace = React.createClass({
         });
     },
     renderMap() {
+        if (!this.state.result) {
+            return <Map state="s3" />
+        }
         if (!this.state.showState2) {
             return <Map state="s1" />
         } else {
@@ -68,6 +71,9 @@ const Brace = React.createClass({
         }
     },
     renderChart() {
+        if (!this.state.result) {
+            return <div />
+        }
         if (!this.state.showState2) {
             return <SimpleLineChart height={240} state="s1" />
         } else {
@@ -91,6 +97,9 @@ const Brace = React.createClass({
         }
     },
     renderData() {
+        if (!this.state.result) {
+            return <div />
+        }
         if (!this.state.showState2) {
             return (
                 <table>
@@ -311,6 +320,17 @@ const Brace = React.createClass({
             )
         }
     },
+    renderbraceDiscoveryTab(cls1,cls2){
+        if (!this.state.result) {
+            return <div />
+        }
+        return (
+            <div className="braceDiscoveryTab">
+                <span className={cls1} data-idx="1" onClick={this.handleClick}>发现违规补贴金额共433234.05元</span>
+                <span className={cls2} data-idx="2" onClick={this.handleClick}>发现3245个违规用户</span>
+            </div>
+        )
+    },
     render () {
         let cls1 = this.state.showState2 ? '' : 'active'
         let cls2 = this.state.showState2 ? 'active' : ''
@@ -360,10 +380,7 @@ const Brace = React.createClass({
                                 <div className="column is-6">
                                     <div className="braceDiscovery">
                                         <h1>审计发现</h1>
-                                        <div className="braceDiscoveryTab">
-                                            <span className={cls1} data-idx="1" onClick={this.handleClick}>发现违规补贴金额共433234.05元</span>
-                                            <span className={cls2} data-idx="2" onClick={this.handleClick}>发现3245个违规用户</span>
-                                        </div>
+                                        { this.renderbraceDiscoveryTab(cls1,cls2) }
                                         <h1>趋势分析</h1>
                                         { this.renderChart() }
                                     </div>
